@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Serageldin Kamal — Portfolio</title>
+  <meta name="description" content="Serageldin Kamal — Mechatronics Engineer and AI/Machine Learning graduate. Portfolio of engineering, automation, and applied AI projects."/>
+  <meta name="theme-color" content="#2563eb"/>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232563eb'/%3E%3Ctext x='50' y='68' font-size='55' font-family='Georgia,serif' font-weight='700' fill='white' text-anchor='middle'%3ESK%3C/text%3E%3C/svg%3E"/>
+  <meta property="og:title" content="Serageldin Kamal — Portfolio"/>
+  <meta property="og:description" content="Mechatronics Engineer and AI/Machine Learning graduate. Engineering, automation, and applied AI projects."/>
+  <meta property="og:type" content="website"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "DM Sans", sans-serif; background: #fff; color: #111; overflow-x: hidden; }
+    :root {
+      --bg: #ffffff; --bg2: #f7f7f5; --text: #111;
+      --muted: #777; --border: #e5e5e0; --blue: #2563eb; --blue-light: #eff6ff;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 60px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 5rem);
+      background: rgba(255,255,255,.93); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family:"Playfair Display",serif; font-weight:700; font-size:1.2rem; color:var(--text); text-decoration:none; }
+    .nav-logo em { color:var(--blue); font-style:normal; }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { font-size:.78rem; font-weight:500; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
+    .nav-links a:hover { color:var(--text); }
+    @media(max-width:700px){ .nav-links{display:none} }
+    section { padding: clamp(4rem,9vw,7rem) clamp(1.5rem,6vw,5rem); }
+    .lbl { font-size:.68rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--blue); margin-bottom:.6rem; }
+    .hdg { font-family:"Playfair Display",serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:700; line-height:1.1; margin-bottom:.75rem; }
+    .dvd { width:36px; height:3px; background:var(--blue); border-radius:2px; margin-bottom:2.5rem; }
+    .rv { opacity:0; transform:translateY(18px); transition:opacity .65s ease,transform .65s ease; }
+    .rv.in { opacity:1; transform:none; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
+
+    /* HERO */
+    #hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding-top:80px; position:relative; overflow:hidden; }
+
+    .scroll-cue {
+      position:absolute; bottom:2.2rem; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:.5rem;
+      color:var(--muted); text-decoration:none;
+      animation:scrollCueFloat 2.2s ease-in-out infinite;
+    }
+    .scroll-cue span { font-size:.68rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; }
+    .scroll-cue-dot { animation:scrollCueDot 2.2s ease-in-out infinite; }
+    @keyframes scrollCueFloat { 0%,100%{ transform:translateX(-50%) translateY(0);} 50%{ transform:translateX(-50%) translateY(6px);} }
+    @keyframes scrollCueDot { 0%{ opacity:1; transform:translateY(0);} 60%{ opacity:0; transform:translateY(9px);} 61%{ opacity:0; transform:translateY(0);} 100%{ opacity:1; transform:translateY(0);} }
+    @media(max-width:640px){ .scroll-cue{ bottom:1.4rem; } }
+    .hero-dots { position:absolute; right:-30px; top:50%; transform:translateY(-50%); width:300px; height:300px; pointer-events:none; background-image:radial-gradient(circle,#2563eb 1.5px,transparent 1.5px); background-size:22px 22px; opacity:.09; }
+    .hero-badge { display:inline-flex; align-items:center; gap:.5rem; background:var(--blue-light); color:var(--blue); border-radius:100px; padding:.3rem .9rem; font-size:.75rem; font-weight:500; margin-bottom:1.5rem; width:fit-content; animation:fadeUp .6s ease both; }
+    .hero-dot-pulse { width:7px; height:7px; border-radius:50%; background:var(--blue); animation:pulse 2s infinite; }
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    h1.hero-name { font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(2.8rem,7vw,5.8rem); line-height:1.04; animation:fadeUp .7s .1s ease both; }
+    h1.hero-name .outline { -webkit-text-stroke:2px var(--text); color:transparent; }
+    h1.hero-name .accent { color:var(--blue); }
+    .hero-sub { margin-top:1.25rem; font-size:clamp(.95rem,1.8vw,1.1rem); color:var(--muted); font-weight:300; max-width:540px; line-height:1.8; animation:fadeUp .7s .2s ease both; }
+    .hero-btns { display:flex; gap:.85rem; flex-wrap:wrap; margin-top:2rem; animation:fadeUp .7s .3s ease both; }
+    .btn { display:inline-flex; align-items:center; padding:.65rem 1.6rem; border-radius:4px; border:none; font-size:.82rem; font-weight:500; letter-spacing:.04em; text-decoration:none; cursor:pointer; transition:all .2s; }
+    .btn-dark { background:var(--text); color:#fff; } .btn-dark:hover{background:#333}
+    .btn-out { background:transparent; color:var(--text); border:1.5px solid var(--border); } .btn-out:hover{border-color:var(--text)}
+
+    /* ABOUT */
+    #about { background:var(--bg2); }
+    .about-grid { display:grid; grid-template-columns:260px 1fr; gap:4rem; align-items:start; }
+    .about-img { aspect-ratio:1; border-radius:10px; background:#dde4ef; display:flex; align-items:center; justify-content:center; font-size:.85rem; color:var(--muted); position:relative; overflow:hidden; }
+    .about-img::after { content:""; position:absolute; bottom:0; right:0; width:55%; height:55%; background:var(--blue); opacity:.1; border-radius:10px 0 10px 0; }
+    .about-p { color:var(--muted); font-weight:300; line-height:1.85; margin-bottom:1rem; }
+    .about-p strong { color:var(--text); font-weight:500; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border); }
+    .stat-n { font-family:"Playfair Display",serif; font-size:2rem; font-weight:700; }
+    .stat-n sup { color:var(--blue); font-size:1.2rem; }
+    .stat-l { font-size:.73rem; color:var(--muted); margin-top:.2rem; }
+    @media(max-width:680px){ .about-grid{grid-template-columns:1fr;gap:2rem} .about-img{max-width:180px} .stats{grid-template-columns:1fr 1fr} }
+
+    /* ── TIMELINE ── */
+    #timeline { background:var(--bg); overflow:hidden; }
+    #snakeWrap { position:relative; width:100%; }
+
+    /* Academic node cards */
+    /* snake scroll wrapper */
+    .snake-scroll { overflow-x:auto; padding-bottom:.5rem; }
+    #snakeWrap { min-width:1300px; }
+
+    /* ── Education cards (main / bigger) ── */
+    .s-card {
+      position:absolute;
+      border-radius:14px;
+      transition:transform .2s, box-shadow .2s;
+      overflow:hidden;
+    }
+    .s-card.edu {
+      background:#eff6ff;
+      border:2.5px solid #3b82f6;
+      box-shadow:0 4px 20px rgba(59,130,246,.18);
+      cursor:pointer;
+    }
+    .s-card.edu:hover { box-shadow:0 10px 32px rgba(59,130,246,.2); transform:translateY(-2px); }
+
+    /* ── Work cards (secondary / smaller) ── */
+    .s-card.work {
+      background:#fffbeb;
+      border:2px solid #fcd34d;
+      box-shadow:0 3px 14px rgba(245,158,11,.10);
+      cursor:pointer;
+    }
+    .s-card.work:hover { box-shadow:0 8px 24px rgba(245,158,11,.2); transform:translateY(-2px); }
+
+    .s-card-head { padding:.6rem .9rem .4rem; border-bottom:1px solid rgba(0,0,0,.07); }
+    .s-card.edu .s-card-head { border-color:rgba(59,130,246,.15); }
+    .s-card.work .s-card-head { border-color:rgba(245,158,11,.2); }
+
+    .s-num { font-family:"Playfair Display",serif; font-size:1.6rem; font-weight:700; line-height:1; margin-bottom:.2rem; }
+    .s-card.edu .s-num { color:#2563eb; }
+    .s-card.work .s-num { color:#d97706; font-size:1rem; }
+
+    .s-type { font-size:.58rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; margin-bottom:.15rem; }
+    .s-card.edu .s-type { color:#3b82f6; }
+    .s-card.work .s-type { color:#f59e0b; }
+
+    .s-title { font-family:"Playfair Display",serif; font-size:1.12rem; font-weight:700; line-height:1.25; color:var(--text); letter-spacing:-.01em; }
+    .s-card.work .s-title { font-size:1rem; }
+    .s-org { font-size:.72rem; color:var(--muted); margin-top:.2rem; font-weight:500; }
+
+    /* Edu card description */
+    .s-edu-desc { font-size:.7rem; color:#4b72b0; line-height:1.4; padding:.35rem .9rem .3rem; font-style:italic; border-bottom:1px solid rgba(59,130,246,.1); }
+
+    /* Project items inside academic cards */
+    .s-proj-list { padding:.2rem .5rem; }
+    .s-proj-item {
+      display:flex; align-items:flex-start; gap:.4rem;
+      padding:.2rem .5rem; border-radius:6px; cursor:pointer;
+      transition:background .15s; margin-bottom:.05rem;
+    }
+    .s-proj-item:hover { background:rgba(59,130,246,.08); }
+    .s-proj-dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; margin-top:6px; background:#3b82f6; }
+    .s-proj-text { flex:1; }
+    .s-proj-name { font-size:.7rem; font-weight:600; color:#1e40af; line-height:1.3; }
+    .s-proj-summary { font-size:.63rem; color:#64748b; line-height:1.3; margin-top:.08rem; }
+
+    /* Work card body */
+    .s-work-body { padding:.35rem .9rem .6rem; }
+    .s-work-summary { font-size:.72rem; color:#78350f; line-height:1.5; margin-bottom:.5rem; }
+    .s-read-more { display:inline-flex; align-items:center; gap:.3rem; font-size:.62rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:#d97706; }
+
+    /* Mobile fallback */
+    .m-timeline { display:none; padding-left:.5rem; }
+    .m-item { display:flex; gap:1rem; padding-bottom:2rem; position:relative; }
+    .m-item:not(:last-child)::after { content:""; position:absolute; left:18px; top:38px; bottom:0; width:2px; background:var(--border); }
+    .m-dot { width:36px; height:36px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:"Playfair Display",serif; font-size:.7rem; font-weight:700; color:#fff; position:relative; z-index:1; }
+    .m-type { font-size:.62rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; }
+    .m-title { font-family:"Playfair Display",serif; font-size:1.1rem; font-weight:700; color:var(--text); }
+    .m-org { font-size:.82rem; color:var(--muted); font-weight:500; }
+    .m-date { font-size:.7rem; color:var(--muted); opacity:.7; margin-top:.15rem; }
+    @media(max-width:900px){ #snakeWrap{display:none} .m-timeline{display:block} }
+
+    /* ── SLIDE PANEL ── */
+    .modal-overlay {
+      position:fixed; inset:0;
+      background:rgba(15,23,42,.6); backdrop-filter:blur(4px);
+      z-index:800; opacity:0; pointer-events:none;
+      transition:opacity .3s ease;
+    }
+    .modal-overlay.show { opacity:1; pointer-events:all; }
+
+    .modal-box {
+      position:fixed; top:50%; left:50%;
+      width:min(640px, 92vw); max-height:82vh;
+      background:#fff; z-index:900; border-radius:18px;
+      box-shadow:0 30px 80px rgba(0,0,0,.3);
+      display:flex; flex-direction:column; overflow:hidden;
+      transform:translate(-50%,-50%) perspective(1000px) rotateX(-10deg) scale(.94);
+      opacity:0; pointer-events:none;
+      transition:transform .38s cubic-bezier(.2,.9,.25,1.15), opacity .28s ease;
+    }
+    .modal-box.show {
+      transform:translate(-50%,-50%) perspective(1000px) rotateX(0deg) scale(1);
+      opacity:1; pointer-events:all;
+    }
+    @media(max-width:600px){ .modal-box{ width:94vw; max-height:88vh; } }
+
+    .modal-close {
+      position:absolute; top:1rem; right:1rem; z-index:2;
+      background:var(--bg2); border:none; width:34px; height:34px; border-radius:50%;
+      cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center;
+      transition:background .2s;
+    }
+    .modal-close:hover { background:var(--border); }
+
+    .modal-scroll { flex:1; overflow-y:auto; padding:2rem 2rem 2.2rem; }
+    .panel-section-title { font-size:.68rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--blue); margin-bottom:.6rem; margin-top:1.25rem; }
+    .panel-section-title:first-child { margin-top:0; }
+    .panel-p { font-size:.88rem; color:var(--muted); line-height:1.8; margin-bottom:.75rem; font-weight:300; }
+    .panel-p strong { color:var(--text); font-weight:500; }
+    .panel-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.5rem; }
+    .panel-tag { font-size:.68rem; padding:.2rem .6rem; border-radius:4px; background:var(--blue-light); color:var(--blue); font-weight:500; }
+    .panel-tag-link { cursor:pointer; text-decoration:underline; text-decoration-color:rgba(37,99,235,.35); transition:background .15s; }
+    .panel-tag-link:hover { background:#dbeafe; }
+    .panel-divider { height:1px; background:var(--border); margin:1.25rem 0; }
+
+    /* SKILLS */
+    #skills { background:var(--bg2); }
+    .skills-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:1.1rem; }
+    .sk-card { background:#fff; border:1px solid var(--border); border-radius:10px; padding:1.4rem; transition:border-color .2s; }
+    .sk-card:hover { border-color:var(--blue); }
+    .sk-head { font-family:"Playfair Display",serif; font-size:.95rem; font-weight:700; padding-bottom:.75rem; border-bottom:1px solid var(--border); margin-bottom:.9rem; }
+    .sk-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:.55rem; }
+    .sk-name { font-size:.82rem; color:var(--muted); }
+    .sk-bg { width:68px; height:3px; background:var(--border); border-radius:2px; }
+    .sk-fill { height:100%; border-radius:2px; width:0; transition:width 1s cubic-bezier(.25,.46,.45,.94); }
+
+    /* PROJECTS */
+    #projects { background:var(--bg); }
+    .proj-tabs { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:2rem; }
+    .ptab { padding:.4rem 1rem; border-radius:100px; font-size:.75rem; font-weight:500; letter-spacing:.05em; border:1px solid var(--border); background:transparent; color:var(--muted); cursor:pointer; transition:all .2s; }
+    .ptab.active, .ptab:hover { background:var(--blue); color:#fff; border-color:var(--blue); }
+    .proj-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:1.1rem; }
+    .proj-card { border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:transform .2s,box-shadow .2s; background:var(--bg2); }
+    .proj-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,.07); }
+    .proj-card.hidden { display:none; }
+    .proj-thumb { height:148px; display:flex; align-items:center; justify-content:center; font-size:.82rem; color:var(--muted); position:relative; font-weight:300; }
+    .proj-n { position:absolute; right:1rem; bottom:.25rem; font-family:"Playfair Display",serif; font-size:3.5rem; font-weight:700; color:rgba(0,0,0,.06); line-height:1; }
+    .proj-tag { position:absolute; top:.85rem; left:.85rem; font-size:.62rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; background:rgba(255,255,255,.85); border-radius:100px; padding:.2rem .6rem; backdrop-filter:blur(4px); }
+    .proj-body { padding:1.25rem; }
+    .proj-title { font-family:"Playfair Display",serif; font-size:1.28rem; font-weight:700; margin-bottom:.5rem; line-height:1.25; letter-spacing:-.01em; }
+    .proj-desc { font-size:.85rem; color:var(--muted); font-weight:300; margin-bottom:.85rem; line-height:1.7; }
+    .proj-chips { display:flex; gap:.4rem; flex-wrap:wrap; margin-bottom:.85rem; }
+    .proj-chip { font-size:.68rem; padding:.22rem .6rem; border-radius:20px; background:var(--blue-light); color:var(--blue); font-weight:600; letter-spacing:.02em; }
+
+    /* Inline project expand panel (accordion) */
+    .proj-card.active { box-shadow:0 4px 18px rgba(37,99,235,.18); border-color:#93c5fd; }
+    .proj-read-more { display:inline-flex; align-items:center; gap:.3rem; font-size:.68rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--blue); }
+    .proj-expand-row {
+      grid-column: 1 / -1;
+      background:#f8fafc; border:1px solid #dbeafe; border-radius:12px;
+      padding:1.6rem clamp(1.2rem,3vw,2.2rem);
+      animation:expandIn .28s ease both;
+      position:relative;
+    }
+    @keyframes expandIn { from{ opacity:0; transform:translateY(-8px); } to{ opacity:1; transform:none; } }
+    .proj-expand-close {
+      position:absolute; top:1rem; right:1rem; width:30px; height:30px; border-radius:50%;
+      border:1px solid var(--border); background:#fff; cursor:pointer; font-size:.85rem; color:var(--muted);
+      display:flex; align-items:center; justify-content:center; transition:background .15s;
+    }
+    .proj-expand-close:hover { background:#f1f5f9; }
+    .proj-expand-header { margin-bottom:.6rem; padding-right:2.5rem; }
+    .proj-expand-badge { font-size:.68rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); margin-bottom:.3rem; }
+    .proj-expand-title { font-family:"Playfair Display",serif; font-size:1.4rem; font-weight:700; line-height:1.25; }
+    .proj-expand-meta { font-size:.8rem; color:var(--muted); margin-top:.25rem; }
+
+    /* CONTACT */
+    #contact { background:#0f0f0f; }
+    #contact .lbl { color:#60a5fa; }
+    #contact .hdg { color:#fff; }
+    #contact .dvd { background:#60a5fa; }
+    .ct-grid { display:grid; grid-template-columns:1fr 1.3fr; gap:4rem; }
+    .ct-desc { color:rgba(255,255,255,.4); font-weight:300; line-height:1.8; margin-bottom:1.5rem; }
+    .ct-links { display:flex; flex-direction:column; gap:.7rem; }
+    .ct-link { display:flex; align-items:center; gap:.75rem; color:rgba(255,255,255,.5); font-size:.88rem; font-weight:300; text-decoration:none; transition:color .2s; }
+    .ct-link:hover { color:#60a5fa; }
+    .cf { display:flex; flex-direction:column; gap:.85rem; }
+    .cf-row { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+    .cf-g { display:flex; flex-direction:column; gap:.3rem; }
+    .cf-g label { font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.28); font-weight:500; }
+    .cf-g input,.cf-g textarea { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.09); border-radius:5px; padding:.6rem .85rem; color:rgba(255,255,255,.8); font-family:"DM Sans",sans-serif; font-size:.88rem; outline:none; transition:border-color .2s; }
+    .cf-g textarea { min-height:110px; resize:vertical; }
+    .cf-g input:focus,.cf-g textarea:focus { border-color:#60a5fa; }
+    .cf-btn { align-self:flex-start; background:#2563eb; color:#fff; border:none; padding:.65rem 1.8rem; border-radius:5px; font-family:"DM Sans",sans-serif; font-size:.82rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; transition:background .2s; }
+    .cf-btn:hover { background:#1d4ed8; }
+    @media(max-width:680px){ .ct-grid{grid-template-columns:1fr;gap:2.5rem} .cf-row{grid-template-columns:1fr} }
+
+    footer { background:#080808; padding:1.5rem clamp(1.5rem,6vw,5rem); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.75rem; }
+    .ft-copy { font-size:.75rem; color:rgba(255,255,255,.22); }
+    .ft-copy em { color:#60a5fa; font-style:normal; }
+    .ft-nav { display:flex; gap:1.5rem; }
+    .ft-nav a { font-size:.75rem; color:rgba(255,255,255,.22); text-decoration:none; transition:color .2s; }
+    .ft-nav a:hover { color:#60a5fa; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo" aria-label="Back to top">SK<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#timeline">Journey</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-badge"><span class="hero-dot-pulse"></span> Open to opportunities</div>
+  <h1 class="hero-name">Serageldin<br><span class="accent">Kamal</span></h1>
+  <p class="hero-sub">Mechatronics engineer turned AI builder. First-Class Honours, an MSc in Machine Learning underway, and a track record of shipping real automation, robotics, and AI solutions, not just studying them.</p>
+  <div class="hero-btns">
+    <a href="#projects" class="btn btn-dark">View Projects</a>
+    <a href="#contact" class="btn btn-out">Get In Touch</a>
+  </div>
+  <a href="#about" class="scroll-cue" aria-label="Scroll down">
+    <span>Scroll</span>
+    <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
+      <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/>
+      <circle class="scroll-cue-dot" cx="8" cy="7" r="2" fill="currentColor"/>
+    </svg>
+  </a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img rv"><img src="profile.jpg" alt="Serageldin Kamal" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:block;"/></div>
+    <div>
+      <p class="lbl rv">About Me</p>
+      <h2 class="hdg rv">Engineer, builder,<br>problem solver</h2>
+      <div class="dvd rv"></div>
+      <p class="about-p rv"><strong>Hi, I'm Serageldin.</strong> I'm a Mechatronics and Autonomous Systems graduate with a strong interest in automation, AI, robotics, and practical engineering solutions.</p>
+      <p class="about-p rv">What drives me is the idea of making systems smarter, faster, and more efficient. Whether working on automation research, AI-supported tools, or engineering design, I enjoy turning complex problems into clear, useful solutions.</p>
+      <p class="about-p rv">Currently based in <strong>Liverpool, England</strong>, finishing my MSc in Artificial Intelligence &amp; Machine Learning — actively looking for my next opportunity.</p>
+      <div class="stats">
+        <div class="rv"><div class="stat-n">2<sup>+</sup></div><div class="stat-l">Engineering Internships</div></div>
+        <div class="rv"><div class="stat-n">10<sup>+</sup></div><div class="stat-l">Technical Projects</div></div>
+        <div class="rv"><div class="stat-n">20<sup>+</sup></div><div class="stat-l">Modules Studied</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <p class="lbl rv">My Journey</p>
+  <h2 class="hdg rv">Work &amp; Education</h2>
+  <div class="dvd rv"></div>
+  <div class="snake-scroll"><div id="snakeWrap"></div></div>
+  <div class="m-timeline" id="mobileTl"></div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="lbl rv">Selected Work</p>
+  <h2 class="hdg rv">Projects</h2>
+  <div class="dvd rv"></div>
+  <div class="proj-tabs rv" id="projTabs">
+    <button class="ptab active" data-cat="all">All</button>
+    <button class="ptab" data-cat="flagship">Flagship</button>
+    <button class="ptab" data-cat="ai">AI &amp; Control</button>
+    <button class="ptab" data-cat="embedded">Embedded &amp; Robotics</button>
+    <button class="ptab" data-cat="electronics">Electronics</button>
+    <button class="ptab" data-cat="management">Management</button>
+  </div>
+  <div class="proj-grid" id="projGrid">
+    <div class="proj-card rv" data-cat="flagship" data-panel="pilldispenser" id="projcard-pilldispenser" onclick="toggleProjectExpand(event,'pilldispenser')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#dbeafe"><span>Mechatronics Project</span><div class="proj-n">01</div><span class="proj-tag" style="color:#1d4ed8">⭐ Flagship</span></div>
+      <div class="proj-body"><h3 class="proj-title">Autonomous Pill Dispenser &amp; Alarm System</h3><p class="proj-desc">Designed and built a smart medication management device with motor-driven rotating tray, Arduino control, LCD reminders, and temperature monitoring.</p><div class="proj-chips"><span class="proj-chip">Arduino</span><span class="proj-chip">SolidWorks</span><span class="proj-chip">3D Printing</span><span class="proj-chip">Stepper Motor</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="ai" data-panel="dissertation" id="projcard-dissertation" onclick="toggleProjectExpand(event,'dissertation')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#fef3c7"><span>MSc Dissertation</span><div class="proj-n" style="color:rgba(0,0,0,.05)">02</div><span class="proj-tag" style="color:#b45309">🔬 In Progress</span></div>
+      <div class="proj-body"><h3 class="proj-title">Predictive Maintenance for Industrial Systems</h3><p class="proj-desc">Applying machine learning to real industrial sensor data (CWRU, MIMII, NASA CMAPSS) to detect and predict equipment faults before they happen.</p><div class="proj-chips"><span class="proj-chip">Python</span><span class="proj-chip">Machine Learning</span><span class="proj-chip">Signal Processing</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="ai" data-panel="genetic" id="projcard-genetic" onclick="toggleProjectExpand(event,'genetic')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#ede9fe"><span>AI &amp; Optimisation</span><div class="proj-n" style="color:rgba(0,0,0,.05)">02</div></div>
+      <div class="proj-body"><h3 class="proj-title">Optimisation Algorithm Design</h3><p class="proj-desc">Genetic Algorithm in MATLAB solving benchmark optimisation problems. Analysed population size, mutation rate, and crossover strategy on convergence.</p><div class="proj-chips"><span class="proj-chip">MATLAB</span><span class="proj-chip">Genetic Algorithms</span><span class="proj-chip">Optimisation</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="ai" data-panel="chemcontrol" id="projcard-chemcontrol" onclick="toggleProjectExpand(event,'chemcontrol')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#dcfce7"><span>Process Control</span><div class="proj-n" style="color:rgba(0,0,0,.05)">03</div></div>
+      <div class="proj-body"><h3 class="proj-title">Control System for Chemical Process</h3><p class="proj-desc">Compared PID, Ziegler-Nichols, and Smith Predictor controllers for a delayed chemical process in MATLAB/Simulink.</p><div class="proj-chips"><span class="proj-chip">MATLAB</span><span class="proj-chip">Simulink</span><span class="proj-chip">PID Control</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="embedded" data-panel="robot" id="projcard-robot" onclick="toggleProjectExpand(event,'robot')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#fef3c7"><span>Autonomous Robotics</span><div class="proj-n" style="color:rgba(0,0,0,.05)">04</div></div>
+      <div class="proj-body"><h3 class="proj-title">Autonomous Line-Following Robot</h3><p class="proj-desc">Group-built robot using Arduino, IR sensors, ultrasonic detection, and L293D motor driver. Detected obstacles and displayed warnings.</p><div class="proj-chips"><span class="proj-chip">Arduino</span><span class="proj-chip">IR Sensors</span><span class="proj-chip">Motor Control</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="electronics" data-panel="rfcircuit" id="projcard-rfcircuit" onclick="toggleProjectExpand(event,'rfcircuit')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#fce7f3"><span>Analogue Electronics</span><div class="proj-n" style="color:rgba(0,0,0,.05)">05</div></div>
+      <div class="proj-body"><h3 class="proj-title">Mobile Phone Detection Circuit</h3><p class="proj-desc">Analogue RF detection circuit with CA3130 op-amp, transistor switching, 7809 regulator, and low battery indicator. PCB layout and breadboard tested.</p><div class="proj-chips"><span class="proj-chip">Op-Amp</span><span class="proj-chip">RF Detection</span><span class="proj-chip">PCB Layout</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="management" data-panel="evstudy" id="projcard-evstudy" onclick="toggleProjectExpand(event,'evstudy')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#fafafa"><span>Engineering Management</span><div class="proj-n" style="color:rgba(0,0,0,.05)">06</div></div>
+      <div class="proj-body"><h3 class="proj-title">EV vs Petrol Fleet Analysis</h3><p class="proj-desc">Full TCO comparison, lifecycle CO2 emissions, risk assessment, and sustainability analysis. Recommended EV adoption for long-term strategic fit.</p><div class="proj-chips"><span class="proj-chip">TCO Analysis</span><span class="proj-chip">Risk Assessment</span><span class="proj-chip">Sustainability</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="ai" data-panel="matlab" id="projcard-matlab" onclick="toggleProjectExpand(event,'matlab')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#e0e7ff"><span>Control Engineering</span><div class="proj-n" style="color:rgba(0,0,0,.05)">07</div></div>
+      <div class="proj-body"><h3 class="proj-title">MATLAB &amp; Controller Design</h3><p class="proj-desc">Transfer function modelling, Routh-Hurwitz stability testing, and PID/PI controller tuning simulated in MATLAB and Simulink.</p><div class="proj-chips"><span class="proj-chip">MATLAB</span><span class="proj-chip">Simulink</span><span class="proj-chip">Stability Analysis</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="embedded" data-panel="embedded" id="projcard-embedded" onclick="toggleProjectExpand(event,'embedded')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#fef9c3"><span>Embedded Systems</span><div class="proj-n" style="color:rgba(0,0,0,.05)">08</div></div>
+      <div class="proj-body"><h3 class="proj-title">Embedded Systems Development</h3><p class="proj-desc">Arduino-based pedestrian crossing system and a PIC microcontroller digital storage lock, built with assembly and embedded C.</p><div class="proj-chips"><span class="proj-chip">Arduino</span><span class="proj-chip">PIC Assembly</span><span class="proj-chip">PICSIM</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="electronics" data-panel="converter" id="projcard-converter" onclick="toggleProjectExpand(event,'converter')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#dbeafe"><span>Analogue Electronics</span><div class="proj-n" style="color:rgba(0,0,0,.05)">09</div></div>
+      <div class="proj-body"><h3 class="proj-title">Current-to-Voltage Converter</h3><p class="proj-desc">Analogue signal conditioning circuit converting a ±2.5mA sensor current into a 2–3V output, with a 50Hz RC low-pass filter.</p><div class="proj-chips"><span class="proj-chip">Proteus</span><span class="proj-chip">LM741 Op-Amp</span><span class="proj-chip">Signal Conditioning</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="electronics" data-panel="dsb" id="projcard-dsb" onclick="toggleProjectExpand(event,'dsb')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#fce7f3"><span>Communications</span><div class="proj-n" style="color:rgba(0,0,0,.05)">10</div></div>
+      <div class="proj-body"><h3 class="proj-title">DSB-AM Communication Simulation</h3><p class="proj-desc">Simulated amplitude modulation and demodulation across 0–20dB SNR, with time-domain and spectrum analysis of sine and square wave signals.</p><div class="proj-chips"><span class="proj-chip">DSB-AM</span><span class="proj-chip">AWGN Channel</span><span class="proj-chip">Spectrum Analysis</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="lbl rv">What I Bring</p>
+  <h2 class="hdg rv">Skills &amp; Expertise</h2>
+  <div class="dvd rv"></div>
+  <div class="skills-grid">
+    <div class="sk-card rv">
+      <div class="sk-head">Engineering &amp; Programming</div>
+      <div class="sk-row"><span class="sk-name">MATLAB &amp; Simulink</span><div class="sk-bg"><div class="sk-fill" style="background:#2563eb" data-w="88%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Arduino C/C++</span><div class="sk-bg"><div class="sk-fill" style="background:#2563eb" data-w="85%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">SolidWorks CAD</span><div class="sk-bg"><div class="sk-fill" style="background:#2563eb" data-w="78%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Control Systems</span><div class="sk-bg"><div class="sk-fill" style="background:#2563eb" data-w="83%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Embedded Systems</span><div class="sk-bg"><div class="sk-fill" style="background:#2563eb" data-w="80%"></div></div></div>
+    </div>
+    <div class="sk-card rv">
+      <div class="sk-head">AI &amp; Automation</div>
+      <div class="sk-row"><span class="sk-name">Generative AI Tools</span><div class="sk-bg"><div class="sk-fill" style="background:#7c3aed" data-w="90%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Prompt Engineering</span><div class="sk-bg"><div class="sk-fill" style="background:#7c3aed" data-w="88%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Machine Learning</span><div class="sk-bg"><div class="sk-fill" style="background:#7c3aed" data-w="75%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Business Automation</span><div class="sk-bg"><div class="sk-fill" style="background:#7c3aed" data-w="80%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Optimisation Algorithms</span><div class="sk-bg"><div class="sk-fill" style="background:#7c3aed" data-w="78%"></div></div></div>
+    </div>
+    <div class="sk-card rv">
+      <div class="sk-head">Design &amp; Simulation</div>
+      <div class="sk-row"><span class="sk-name">Proteus</span><div class="sk-bg"><div class="sk-fill" style="background:#059669" data-w="75%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Tinkercad</span><div class="sk-bg"><div class="sk-fill" style="background:#059669" data-w="80%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">3D Printing</span><div class="sk-bg"><div class="sk-fill" style="background:#059669" data-w="72%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">PCB Layout</span><div class="sk-bg"><div class="sk-fill" style="background:#059669" data-w="68%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Circuit Design</span><div class="sk-bg"><div class="sk-fill" style="background:#059669" data-w="82%"></div></div></div>
+    </div>
+    <div class="sk-card rv">
+      <div class="sk-head">Professional Skills</div>
+      <div class="sk-row"><span class="sk-name">Technical Reporting</span><div class="sk-bg"><div class="sk-fill" style="background:#d97706" data-w="92%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Problem Solving</span><div class="sk-bg"><div class="sk-fill" style="background:#d97706" data-w="90%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Teamwork</span><div class="sk-bg"><div class="sk-fill" style="background:#d97706" data-w="90%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Research &amp; Analysis</span><div class="sk-bg"><div class="sk-fill" style="background:#d97706" data-w="88%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Presentation</span><div class="sk-bg"><div class="sk-fill" style="background:#d97706" data-w="85%"></div></div></div>
+    </div>
+    <div class="sk-card rv">
+      <div class="sk-head">Automation &amp; Industrial Systems</div>
+      <div class="sk-row"><span class="sk-name">PLC Programming</span><div class="sk-bg"><div class="sk-fill" style="background:#0891b2" data-w="74%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Industrial Automation</span><div class="sk-bg"><div class="sk-fill" style="background:#0891b2" data-w="78%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">IoT &amp; Sensor Networks</span><div class="sk-bg"><div class="sk-fill" style="background:#0891b2" data-w="76%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">SCADA Concepts</span><div class="sk-bg"><div class="sk-fill" style="background:#0891b2" data-w="68%"></div></div></div>
+      <div class="sk-row"><span class="sk-name">Industrial Comms Protocols</span><div class="sk-bg"><div class="sk-fill" style="background:#0891b2" data-w="70%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="ct-grid">
+    <div>
+      <p class="lbl">Get In Touch</p>
+      <h2 class="hdg rv">Let's connect</h2>
+      <div class="dvd"></div>
+      <p class="ct-desc">I'm actively looking for graduate engineering, AI, or automation roles. Feel free to reach out.</p>
+      <div class="ct-links">
+        <a href="mailto:seragelkholy22@gmail.com" class="ct-link"><span>✉</span> seragelkholy22@gmail.com</a>
+        <a href="https://www.linkedin.com/in/serageldin-kamal-807349275/" class="ct-link" target="_blank"><span>in</span> linkedin.com/in/serageldin-kamal</a>
+        <span class="ct-link"><span>📍</span> Liverpool, England</span>
+      </div>
+    </div>
+    <form class="cf" id="contactForm">
+      <div class="cf-row">
+        <div class="cf-g"><label>Name</label><input type="text" name="name" id="cfName" placeholder="Your name" required/></div>
+        <div class="cf-g"><label>Email</label><input type="email" name="email" id="cfEmail" placeholder="your@email.com" required/></div>
+      </div>
+      <div class="cf-g"><label>Subject</label><input type="text" name="subject" id="cfSubject" placeholder="Opportunity / Collaboration"/></div>
+      <div class="cf-g"><label>Message</label><textarea name="message" id="cfMessage" placeholder="Tell me about the opportunity..." required></textarea></div>
+      <button class="cf-btn" id="sendBtn" type="submit">Send Message</button>
+      <p id="cfStatus" style="margin-top:.6rem;font-size:.85rem;"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p class="ft-copy">© 2025 <em>Serageldin Kamal</em>. All rights reserved.</p>
+  <nav class="ft-nav">
+    <a href="#about">About</a><a href="#timeline">Journey</a>
+    <a href="#projects">Projects</a><a href="#contact">Contact</a>
+  </nav>
+</footer>
+
+<!-- DETAIL MODAL (centered, dimmed background) -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeDetailModal()"></div>
+<div class="modal-box" id="modalBox" role="dialog" aria-modal="true">
+  <button class="modal-close" id="modalClose" aria-label="Close" onclick="closeDetailModal()">✕</button>
+  <div class="modal-scroll" id="modalBody"></div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════
+   TIMELINE DATA
+═══════════════════════════════════════════ */
+const EDU_COLOR = '#3b82f6';
+const WORK_COLOR = '#f59e0b';
+
+// Nodes ordered so all 4 edu years sit at EVEN positions (top row)
+// 0=top,1=bot,2=top,3=bot,4=top,5=bot,6=top,7=bot,8=top,9=bot
+// Chronological order, dates corrected against verified CV/portfolio record
+const TL = [
+  {
+    id:'voktech', type:'work', label:'Business Automation Team', date:'2017 – 2018',
+    sub:'VOKTECH', color:WORK_COLOR, icon:'💼',
+    summary:'Helped companies automate business workflows using Zapier — reducing manual work and improving digital operations.'
+  },
+  {
+    id:'saving', type:'work', label:'Social Media Assistant', date:'May – Aug 2020',
+    sub:'Saving Square', color:WORK_COLOR, icon:'💼',
+    summary:'Managed social media posting, content promotion, and online visibility strategy for a retail business.'
+  },
+  {
+    id:'year1', type:'academic', label:'Year 1', date:'2022 – 2023',
+    sub:'BEng Mechatronics — Level 4', color:EDU_COLOR, icon:'🎓',
+    desc:'Foundational modules covering electronics, embedded systems, mathematics, and mechanical engineering.',
+    projects:[
+      { id:'embedded', title:'Embedded Systems Development',
+        summary:'Arduino pedestrian crossing & PIC microcontroller digital lock using assembly programming.' },
+      { id:'converter', title:'Current-to-Voltage Converter',
+        summary:'Analogue signal conditioning circuit: ±2.5mA → 2–3V, with 50Hz low-pass filter in Proteus.' }
+    ]
+  },
+  {
+    id:'torch', type:'work', label:'Jr Mechatronics Intern', date:'Jun – Sep 2023',
+    sub:'Torch Engineering, Doha', color:WORK_COLOR, icon:'💼',
+    summary:'Supported mechanical & electrical engineering — circuit work, lighting calculations, maintenance, and technical reporting on-site in Doha.'
+  },
+  {
+    id:'year2', type:'academic', label:'Year 2', date:'2023 – 2024',
+    sub:'BEng Mechatronics — Level 5', color:EDU_COLOR, icon:'🎓',
+    desc:'Applied mechatronics, instrumentation, communications systems, and group engineering projects.',
+    projects:[
+      { id:'robot', title:'Autonomous Line-Following Robot',
+        summary:'Group-built Arduino robot using IR sensors, ultrasonic obstacle detection, and motor control.' },
+      { id:'matlab', title:'MATLAB & Controller Design',
+        summary:'Transfer functions, Routh-Hurwitz stability, and PID tuning simulated in MATLAB/Simulink.' },
+      { id:'rfcircuit', title:'Mobile Phone Detection Circuit',
+        summary:'Op-amp RF detection circuit with transistor switching, PCB layout, and breadboard testing.' },
+      { id:'dsb', title:'DSB-AM Communication Simulation',
+        summary:'Amplitude modulation simulated across 0–20dB SNR; time-domain and spectrum analysis.' }
+    ]
+  },
+  {
+    id:'year3', type:'academic', label:'Year 3', date:'2024 – 2025',
+    sub:'BEng Mechatronics — Level 6', color:EDU_COLOR, icon:'🎓',
+    desc:'Capstone mechatronics project, process control, autonomous systems, and engineering management.',
+    projects:[
+      { id:'pilldispenser', title:'⭐ Autonomous Pill Dispenser',
+        summary:'Final year project — smart medication device combining SolidWorks CAD, Arduino, and 3D printing.' },
+      { id:'genetic', title:'Optimisation Algorithm Design',
+        summary:'Genetic Algorithm in MATLAB solving Branin, Rosenbrock & Schwefel benchmark functions.' },
+      { id:'chemcontrol', title:'Chemical Process Control',
+        summary:'Compared PID, Ziegler-Nichols, and Smith Predictor controllers for a delayed process in Simulink.' },
+      { id:'evstudy', title:'EV vs Petrol Fleet Analysis',
+        summary:'Full TCO, lifecycle CO₂, risk assessment, and procurement decision — EV adoption recommended.' }
+    ]
+  },
+  {
+    id:'courserep', type:'work', label:'Course Representative', date:'2024 – 2025',
+    sub:'Liverpool John Moores University', color:WORK_COLOR, icon:'💼',
+    summary:'Represented the Mechatronics course to prospective students at open days — explaining modules, student life, and career paths.'
+  },
+  {
+    id:'lawdist', type:'work', label:'Automation Researcher', date:'Feb – Apr 2025',
+    sub:'Law Distribution Ltd', color:WORK_COLOR, icon:'💼',
+    summary:'Researched warehouse automation and robotics solutions — process mapping, efficiency analysis, and formal recommendations to leadership.'
+  },
+  {
+    id:'aiactivator', type:'work', label:'AI Activator Intern', date:'May – Jun 2025',
+    sub:'GoodShip & LJMU', color:WORK_COLOR, icon:'💼',
+    summary:'Applied Gemini, NotebookLM, Lovable & Firebase Studio to real business challenges — AI-enabled CRM, prompt engineering, and startup concepts.'
+  },
+  {
+    id:'msc', type:'academic', label:'MSc', date:'2025 – Present',
+    sub:'AI & Machine Learning — LJMU', color:EDU_COLOR, icon:'🎓',
+    desc:'Advanced study in machine learning algorithms, deep learning, data science, and intelligent systems.',
+    projects:[
+      { id:'dissertation', title:'⭐ Predictive Maintenance for Industrial Systems',
+        summary:'MSc dissertation using real industrial sensor datasets to detect and predict equipment faults with machine learning.' }
+    ]
+  }
+]
+
+/* ═══════════════════════════════════════════
+   DETAILED PANEL CONTENT
+═══════════════════════════════════════════ */
+const DETAILS = {
+  year1: {
+    badge:'Education', title:'BEng Mechatronics — Level 4 (Year 1)',
+    meta:'Liverpool John Moores University | 2022 – 2023',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Foundational year covering electronics, embedded systems, mathematics, and mechanical engineering — building the technical base for the rest of the degree.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Modules Studied</p>
+<div class="panel-tags"><span class="panel-tag">Engineering Mathematics 1a</span><span class="panel-tag">Engineering Mathematics 1b</span><span class="panel-tag">Applied Mechanics 1</span><span class="panel-tag">Software Development for Embedded Systems</span><span class="panel-tag">Engineering Circuit Analysis</span><span class="panel-tag">Analogue Electronics</span><span class="panel-tag">Professional Practice and the Environment</span></div>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Projects This Year</p>
+<div class="panel-tags"><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('embedded')">Embedded Systems Development</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('converter')">Current-to-Voltage Converter</span></div>`
+  },
+  year2: {
+    badge:'Education', title:'BEng Mechatronics — Level 5 (Year 2)',
+    meta:'Liverpool John Moores University | 2023 – 2024',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Applied mechatronics, instrumentation, communications systems, and group engineering projects, moving from theory into hands-on system design.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Modules Studied</p>
+<div class="panel-tags"><span class="panel-tag">Applied Mechanics 2</span><span class="panel-tag">Mechatronics 2</span><span class="panel-tag">Linear Electronics Design and the Environment</span><span class="panel-tag">Instrumentation and Control Engineering</span><span class="panel-tag">Professional Practice Integrative Project</span><span class="panel-tag">Local Communications Systems and Applications</span><span class="panel-tag">Advanced Mathematics</span></div>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Projects This Year</p>
+<div class="panel-tags"><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('robot')">Autonomous Line-Following Robot</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('matlab')">MATLAB & Controller Design</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('rfcircuit')">Mobile Phone Detection Circuit</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('dsb')">DSB-AM Communication Simulation</span></div>`
+  },
+  year3: {
+    badge:'Education', title:'BEng Mechatronics — Level 6 (Year 3)',
+    meta:'Liverpool John Moores University | 2024 – 2025',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Capstone final year covering the flagship mechatronics project, process control, autonomous systems, and engineering management.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Modules Studied</p>
+<div class="panel-tags"><span class="panel-tag">Dynamics and Control</span><span class="panel-tag">Automation and IoT</span><span class="panel-tag">Process Control and Applications</span><span class="panel-tag">Autonomous Systems and Machine Learning</span><span class="panel-tag">Mechatronics Engineering Project</span><span class="panel-tag">Engineering Management</span></div>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Projects This Year</p>
+<div class="panel-tags"><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('pilldispenser')">⭐ Autonomous Pill Dispenser</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('genetic')">Optimisation Algorithm Design</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('chemcontrol')">Chemical Process Control</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('evstudy')">EV vs Petrol Fleet Analysis</span></div>`
+  },
+  embedded: {
+    badge:'Year 1 — Level 4', title:'Embedded Systems Development',
+    meta:'Software Development for Embedded Systems',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Developed two embedded systems applications: an <strong>Arduino-based pedestrian crossing system</strong> and a <strong>PIC microcontroller digital storage lock controller</strong>.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Arduino Pedestrian Crossing</p>
+<p class="panel-p">Designed a Pedestrian Light Controlled Crossing (PELICAN) system using Arduino Uno. Managed two sets of traffic LEDs (green/amber/red for vehicles, green/red for pedestrians), button input, sequential logic, and timing delays replicating a standard UK crossing sequence.</p>
+<p class="panel-section-title">PIC Digital Storage Lock</p>
+<p class="panel-p">Developed a digital lock controller using PIC assembly language and PICSIM simulation. The system used push buttons to cycle through 16 access codes displayed as LED bit patterns. Correct code matching triggered lock activation, with password-change functionality built in.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">Arduino Uno</span><span class="panel-tag">PIC Microcontroller</span><span class="panel-tag">Assembly Language</span><span class="panel-tag">PICSIM</span><span class="panel-tag">Digital I/O</span><span class="panel-tag">Flowchart Design</span><span class="panel-tag">LED/Button Interfacing</span></div>`
+  },
+  converter: {
+    badge:'Year 1 — Level 4', title:'Current-to-Voltage Converter & Low-Pass Filter',
+    meta:'Analogue Electronics',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Designed and simulated an analogue signal conditioning circuit for a remote motor speed sensor — converting a <strong>±2.5 mA current signal into a 2–3 V voltage output</strong> while filtering high-frequency noise.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Circuit Stages</p>
+<p class="panel-p"><strong>Stage 1 — Amplifier:</strong> LM741 op-amp in non-inverting configuration converting and scaling the sensor current signal into the target voltage range.</p>
+<p class="panel-p"><strong>Stage 2 — Low-Pass Filter:</strong> RC filter with a 600Ω resistor and ~5.3µF capacitor creating a 50 Hz cutoff frequency, attenuating unwanted noise components.</p>
+<p class="panel-p"><strong>Stage 3 — Combined Circuit:</strong> Integrated amplifier and filter into one signal conditioning pipeline, tested through waveform and frequency response analysis.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">Proteus Simulation</span><span class="panel-tag">LM741 Op-Amp</span><span class="panel-tag">RC Low-Pass Filter</span><span class="panel-tag">Signal Conditioning</span><span class="panel-tag">Waveform Analysis</span></div>`
+  },
+  robot: {
+    badge:'Year 2 — Level 5', title:'Autonomous Line-Following Robot',
+    meta:'Professional Practice Integrative Project — Group Project',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Designed, built, programmed, and presented an <strong>autonomous line-following robot</strong> as a group engineering project. The robot followed a black line on a white surface, detected obstacles, and displayed real-time warnings.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">System Design</p>
+<p class="panel-p"><strong>Line Following:</strong> IR sensors detected black/white contrast. Based on sensor readings, the robot moved forward, turned left/right, or stopped when the line was lost.</p>
+<p class="panel-p"><strong>Obstacle Detection:</strong> An ultrasonic sensor detected objects within ~10cm. When triggered, the robot stopped, activated a buzzer, and displayed distance information on the LCD.</p>
+<p class="panel-p"><strong>Control Architecture:</strong> Arduino Uno coordinated all sensors, the L293D motor driver, DC motors, LCD, buzzer, LEDs, and push buttons. Tinkercad was used for circuit simulation before physical assembly.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Challenges & Outcomes</p>
+<p class="panel-p">Faced short-circuit damage, unreliable connections, and limited chassis space — resolved by replacing components, improving wiring, and expanding the chassis. Developed teamwork, troubleshooting, and project management skills using a Gantt chart.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">Arduino Uno</span><span class="panel-tag">IR Sensors</span><span class="panel-tag">Ultrasonic Sensor</span><span class="panel-tag">L293D Motor Driver</span><span class="panel-tag">Tinkercad</span><span class="panel-tag">LCD Display</span><span class="panel-tag">Embedded C</span></div>`
+  },
+  matlab: {
+    badge:'Year 2 — Level 5', title:'MATLAB & Controller Design',
+    meta:'Instrumentation and Control Engineering',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Used MATLAB and Simulink to model, analyse, and design control systems for dynamic engineering processes — moving from mathematical theory to software-based simulation.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Key Work</p>
+<p class="panel-p"><strong>Transfer Function Analysis:</strong> Calculated poles, zeros, and system roots to determine stability and oscillatory behaviour.</p>
+<p class="panel-p"><strong>Closed-Loop Feedback Design:</strong> Built feedback control models, combined system series/feedback configurations, and analysed closed-loop responses.</p>
+<p class="panel-p"><strong>Stability Testing:</strong> Applied the Routh-Hurwitz criterion to determine stable gain ranges, confirmed with pole-zero mapping in MATLAB.</p>
+<p class="panel-p"><strong>Disturbance Response Simulation:</strong> Tested how different gain values affect output response, peak value, time to peak, and stability — demonstrating speed vs. overshoot trade-offs.</p>
+<p class="panel-p"><strong>Controller Tuning:</strong> Designed and compared Proportional, PI, and PID controllers, evaluating overshoot and transient behaviour from simulation graphs.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">MATLAB</span><span class="panel-tag">Simulink</span><span class="panel-tag">PID Design</span><span class="panel-tag">Transfer Functions</span><span class="panel-tag">Routh-Hurwitz</span><span class="panel-tag">Step Response</span></div>`
+  },
+  rfcircuit: {
+    badge:'Year 2 — Level 5', title:'Mobile Phone Detection Circuit',
+    meta:'Linear Electronics Design and the Environment',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Designed and built a <strong>low-cost mobile phone detection circuit</strong> that detects nearby RF activity and triggers a visible/audible alert — with applications in restricted environments such as exam halls or secure areas.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Circuit Sections</p>
+<p class="panel-p"><strong>Detection Stage:</strong> An antenna picked up RF signals from active mobile phones. A CA3130 op-amp comparator triggered a BC548 transistor, switching on the LED alert when the detected signal exceeded a threshold.</p>
+<p class="panel-p"><strong>Voltage Regulation:</strong> A 7809 regulator provided stable 9V output from a 12V battery, with filtering capacitors reducing electrical noise.</p>
+<p class="panel-p"><strong>Low Battery Indicator:</strong> A Zener diode reference with BC547 transistors and an LED flagged when battery voltage dropped below a safe level.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Outcomes</p>
+<p class="panel-p">Produced schematic design, PCB layout, 3D visualisation, breadboard prototype, and a full bill of materials. Overcame testing challenges including faulty LEDs, component substitution, and unintended signal detection from nearby devices.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">CA3130 Op-Amp</span><span class="panel-tag">Transistor Switching</span><span class="panel-tag">7809 Regulator</span><span class="panel-tag">PCB Layout</span><span class="panel-tag">Prototyping</span><span class="panel-tag">RF Detection</span></div>`
+  },
+  dsb: {
+    badge:'Year 2 — Level 5', title:'DSB-AM Communication System Simulation',
+    meta:'Local Communications Systems and Applications',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Modelled and analysed a <strong>Double Sideband Amplitude Modulation (DSB-AM)</strong> communication system using simulation — studying how signals are modulated, transmitted through noise, and recovered via demodulation.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">What Was Investigated</p>
+<p class="panel-p">Both <strong>sine wave and square wave message signals</strong> were tested, exposing how different signal types behave under modulation. The full pipeline — DSB-AM modulator → AWGN channel → demodulator — was simulated under SNR values of 0, 3, 6, 10, and 20 dB.</p>
+<p class="panel-p">A key finding: at low SNR, signals were heavily distorted and difficult to identify. At high SNR, demodulated signals became clean and readable — reinforcing the practical relationship between channel noise and communication reliability.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Sideband Verification</p>
+<p class="panel-p">For the sine wave case, calculated sideband frequencies (carrier: 31 Hz, message: ~5.5 Hz) produced an upper sideband of ~36.5 Hz and lower sideband of ~25.5 Hz. Measured values in simulation closely matched (36.13 Hz and 25.39 Hz), validating the theory.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">DSB-AM Modulation</span><span class="panel-tag">AWGN Channel</span><span class="panel-tag">Spectrum Analysis</span><span class="panel-tag">SNR Analysis</span><span class="panel-tag">Signal Processing</span></div>`
+  },
+  pilldispenser: {
+    badge:'Year 3 — Level 6 ⭐ Flagship', title:'Autonomous Pill Dispenser & Alarm System',
+    meta:'Mechatronics Engineering Project — Final Year',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Designed and developed an <strong>autonomous smart pill dispenser</strong> for safer, more reliable medication management. The device combines automated dispensing, scheduled reminders, visual/audible alerts, temperature monitoring, and user confirmation into one compact mechatronic system.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Mechanical Design</p>
+<p class="panel-p">A rotary dispensing mechanism houses medication in a circular tray with multiple compartments — supporting one week of scheduled doses. A stepper motor drives rotation, aligning the correct compartment at the dispensing outlet at the required time. All mechanical parts — base, tray, gears, lid, spindle, and collection dish — were designed in <strong>SolidWorks</strong> and manufactured via <strong>3D printing</strong>.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Electronics & Embedded Software</p>
+<p class="panel-p">An <strong>Arduino-based control architecture</strong> coordinated the stepper motor, LCD screen, buzzer, LED, push button, and TMP36 temperature sensor. The circuit was validated in <strong>Tinkercad</strong> before physical assembly. Embedded logic in <strong>Arduino C/C++</strong> managed scheduled dispensing, alarm activation, user acknowledgement, and temperature-triggered warnings.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Key Features</p>
+<p class="panel-p"><strong>Temperature Monitoring:</strong> The TMP36 sensor warned users if internal temperature exceeded safe storage limits — protecting medication integrity.</p>
+<p class="panel-p"><strong>User Confirmation Loop:</strong> Buzzer deactivates after a short period; LED stays on until the user presses the confirmation button — reducing missed doses.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">SolidWorks CAD</span><span class="panel-tag">Arduino C/C++</span><span class="panel-tag">Tinkercad</span><span class="panel-tag">3D Printing</span><span class="panel-tag">Stepper Motor</span><span class="panel-tag">TMP36 Sensor</span><span class="panel-tag">LCD Display</span><span class="panel-tag">Healthcare Tech</span></div>`
+  },
+  genetic: {
+    badge:'Year 3 — Level 6', title:'Optimisation Algorithm Design',
+    meta:'Autonomous Systems and Machine Learning',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Designed and tested a <strong>Genetic Algorithm</strong> in MATLAB to solve a range of mathematical optimisation problems — understanding how evolutionary search methods find high-quality solutions in complex search spaces.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Algorithm Design</p>
+<p class="panel-p">Implemented core GA components from scratch: population generation, fitness evaluation, tournament selection, crossover, mutation, and elitism. Tested on recognised benchmark functions including <strong>Six-Hump Camel-Back, Branin, Sphere, Schwefel 2.22, and Rosenbrock</strong> — chosen for their varying difficulty and landscape characteristics.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Analysis</p>
+<p class="panel-p">Examined how different parameter settings — population sizes, mutation probabilities, crossover methods — affected optimisation performance. Key findings: larger populations improve diversity, mutation prevents premature convergence, and crossover strategy affects final solution stability.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">MATLAB</span><span class="panel-tag">Genetic Algorithms</span><span class="panel-tag">Fitness Functions</span><span class="panel-tag">Tournament Selection</span><span class="panel-tag">Evolutionary Computation</span><span class="panel-tag">Parameter Tuning</span></div>`
+  },
+  chemcontrol: {
+    badge:'Year 3 — Level 6', title:'Control System Design for a Chemical Process',
+    meta:'Process Control and Applications',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Designed, simulated, and compared <strong>three PID-based control strategies</strong> for a chemical process with second-order dynamics and significant time delay — using MATLAB and Simulink.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Controllers Compared</p>
+<p class="panel-p"><strong>1. Direct Synthesis PID:</strong> Model-based design with first-order Taylor delay approximation. Showed limitations under significant dead time — introduced overshoot and oscillation.</p>
+<p class="panel-p"><strong>2. Ziegler-Nichols PID:</strong> Empirical tuning using ultimate gain and oscillation period. Achieved stable tracking but with noticeable overshoot — demonstrating the quick-tuning vs. refined-performance trade-off.</p>
+<p class="panel-p"><strong>3. Smith Predictor:</strong> Uses an internal process model to compensate for time delay, responding to predicted system behaviour. Produced the best response — fastest settling, least overshoot, and smoothest control action.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">MATLAB</span><span class="panel-tag">Simulink</span><span class="panel-tag">PID Control</span><span class="panel-tag">Smith Predictor</span><span class="panel-tag">Ziegler-Nichols</span><span class="panel-tag">Process Control</span></div>`
+  },
+  evstudy: {
+    badge:'Year 3 — Level 6', title:'EV vs Petrol Vehicle Fleet Analysis',
+    meta:'Engineering Management',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Completed a comprehensive engineering management analysis comparing <strong>electric and petrol vehicles for fleet adoption</strong> — combining financial modelling, sustainability analysis, risk assessment, and contract law considerations.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">What Was Assessed</p>
+<p class="panel-p"><strong>Total Cost of Ownership:</strong> Four-year comparison across purchase, maintenance, fuel/charging, depreciation, and resale — across city, main road, and motorway driving profiles.</p>
+<p class="panel-p"><strong>Uncertainty Analysis:</strong> Best-case, most likely, and worst-case scenarios for both vehicle types under variable electricity prices, mileage, and depreciation.</p>
+<p class="panel-p"><strong>Environmental Impact:</strong> Lifecycle CO₂ comparison across production, operation, and end-of-life — EVs generated higher production emissions but far lower operational emissions.</p>
+<p class="panel-p"><strong>Risk Assessment:</strong> Regulatory trends, battery supply chain risk, fuel price volatility, charging infrastructure, and reputational concerns all evaluated.</p>
+<p class="panel-p"><strong>Contract Law:</strong> Warranties, service agreements, force majeure, and dispute resolution terms assessed as part of procurement management.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Recommendation</p>
+<p class="panel-p">EV adoption recommended for fleet use — lower operational emissions, reduced maintenance, better alignment with sustainability targets and future regulations.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">TCO Analysis</span><span class="panel-tag">Excel Modelling</span><span class="panel-tag">Risk Assessment</span><span class="panel-tag">Sustainability</span><span class="panel-tag">Engineering Management</span></div>`
+  },
+  torch: {
+    badge:'Work Experience', title:'Jr Mechatronics Engineering Intern',
+    meta:'Torch Engineering — Doha, Qatar | Jun – Sep 2023',
+    content:`<p class="panel-section-title">Role Overview</p>
+<p class="panel-p">Worked at Torch Engineering in Doha as a Jr Mechatronics Engineering Intern, gaining exposure to mechanical and electrical engineering work across both on-site and office-based environments.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Key Responsibilities</p>
+<p class="panel-p">Supported circuit work, assisted with lighting calculations, contributed to maintenance tasks, tracked project information using Excel, prepared technical reports, and conducted research to support engineering decisions. Worked alongside mechanical and electrical engineers on system design and analysis.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Skills Developed</p>
+<div class="panel-tags"><span class="panel-tag">Mechanical Systems</span><span class="panel-tag">Circuit Support</span><span class="panel-tag">Lighting Calculations</span><span class="panel-tag">Excel Tracking</span><span class="panel-tag">Technical Reporting</span><span class="panel-tag">On-site Engineering</span></div>`
+  },
+  saving: {
+    badge:'Work Experience', title:'Social Media Manager Assistant',
+    meta:'Saving Square | May – Aug 2020',
+    content:`<p class="panel-section-title">Role Overview</p>
+<p class="panel-p">Supported social media management for Saving Square — a retail business — helping improve their online presence and reach.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Key Responsibilities</p>
+<p class="panel-p">Posted content across social media platforms, promoted posts to reach wider audiences, and supported the shop's online visibility. Developed skills in communication, digital marketing, audience engagement, and consistent platform management.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Skills Developed</p>
+<div class="panel-tags"><span class="panel-tag">Social Media Management</span><span class="panel-tag">Content Promotion</span><span class="panel-tag">Digital Marketing</span><span class="panel-tag">Audience Engagement</span><span class="panel-tag">Brand Awareness</span></div>`
+  },
+  courserep: {
+    badge:'University Role', title:'Course Representative / Open Day Support',
+    meta:'Liverpool John Moores University | 2024 – 2025',
+    content:`<p class="panel-section-title">Role Overview</p>
+<p class="panel-p">Represented the BEng Mechatronics and Autonomous Systems course during university open days — acting as a point of contact for prospective students and their families.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Key Responsibilities</p>
+<p class="panel-p">Spoke with prospective students, explained the course structure and module content, described the student experience, and answered questions about the degree. This role required clear communication of technical academic content in an approachable and engaging way.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Skills Developed</p>
+<div class="panel-tags"><span class="panel-tag">Public Speaking</span><span class="panel-tag">Communication</span><span class="panel-tag">Student Engagement</span><span class="panel-tag">Presentation</span><span class="panel-tag">Course Representation</span></div>`
+  },
+  voktech: {
+    badge:'Work Experience', title:'Business Automation Development Team',
+    meta:'VOKTECH | 2017 – 2018',
+    content:`<p class="panel-section-title">Role Overview</p>
+<p class="panel-p">Worked within a business automation development team, helping companies automate their online business processes and improve how they stay organised using digital automation tools.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Key Responsibilities</p>
+<p class="panel-p">Used automation platforms such as <strong>Zapier</strong> to connect apps, reduce manual work, and support smoother digital workflows. Gained practical understanding of how businesses can use automation to save time, reduce errors, improve task tracking, and make everyday operations more efficient.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Skills Developed</p>
+<div class="panel-tags"><span class="panel-tag">Zapier</span><span class="panel-tag">Workflow Automation</span><span class="panel-tag">Business Process Improvement</span><span class="panel-tag">Digital Operations</span><span class="panel-tag">Client Support</span></div>`
+  },
+  msc: {
+    badge:'Education — Current', title:'MSc Artificial Intelligence & Machine Learning',
+    meta:'Liverpool John Moores University | 2025 – Present',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Currently completing an MSc in Artificial Intelligence and Machine Learning at Liverpool John Moores University — building on the technical foundation from my BEng with advanced study in AI, machine learning, data science, and intelligent systems.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Focus Areas</p>
+<p class="panel-p">The programme covers machine learning algorithms, deep learning, natural language processing, computer vision, data analytics, and AI ethics — alongside practical project work applying these techniques to real-world engineering and business problems.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Projects This Year</p>
+<div class="panel-tags"><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('dissertation')">⭐ Predictive Maintenance for Industrial Systems</span></div>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Skills Being Developed</p>
+<div class="panel-tags"><span class="panel-tag">Machine Learning</span><span class="panel-tag">Deep Learning</span><span class="panel-tag">Data Science</span><span class="panel-tag">Python</span><span class="panel-tag">AI Ethics</span><span class="panel-tag">Research Methods</span></div>`
+  },
+  aiactivator: {
+    badge:'Work Experience', title:'AI Activator Intern',
+    meta:'GoodShip & Liverpool John Moores University | May – Jun 2025',
+    content:`<p class="panel-section-title">Role Overview</p>
+<p class="panel-p">Took part in a hands-on AI Activator programme with GoodShip and Liverpool John Moores University, focused on applying generative AI tools to real business challenges in a multidisciplinary team environment.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Key Work</p>
+<p class="panel-p">Contributed to the development of an <strong>AI-enabled CRM system</strong>, created and refined effective AI prompts, built digital portfolio concepts, and explored AI-supported business model ideas. The internship gave practical exposure to AI not just as a technical tool, but as a business development and problem-solving asset.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Tools & Skills</p>
+<div class="panel-tags"><span class="panel-tag">Gemini</span><span class="panel-tag">NotebookLM</span><span class="panel-tag">Lovable</span><span class="panel-tag">Firebase Studio</span><span class="panel-tag">Prompt Engineering</span><span class="panel-tag">CRM Development</span><span class="panel-tag">Pitching</span><span class="panel-tag">Business Analysis</span></div>`
+  },
+  dissertation: {
+    badge:'MSc Dissertation — In Progress', title:'Predictive Maintenance for Industrial Systems',
+    meta:'Liverpool John Moores University | 2025 – Present',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">My MSc dissertation applies <strong>machine learning to predictive maintenance</strong> for industrial mechatronic systems and machines — using real sensor data to detect early signs of equipment failure before it happens, rather than relying on scheduled or reactive maintenance.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Datasets</p>
+<p class="panel-p">Working with three established industrial datasets to keep the research grounded in real equipment behaviour: <strong>CWRU</strong> (bearing fault vibration data), <strong>MIMII</strong> (industrial machine sound recordings for anomaly detection), and <strong>NASA CMAPSS</strong> (turbofan engine degradation simulation data).</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Approach</p>
+<p class="panel-p">Independently designed the research methodology, set up a Python-based development environment with version control, and secured physical lab access at LJMU. The project involves signal processing, feature extraction, and training/evaluating machine learning models to classify fault types and estimate remaining useful life.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Why It Matters</p>
+<p class="panel-p">Unplanned equipment failure is expensive and disruptive in manufacturing environments. Predictive maintenance models like this one help engineering teams catch problems early, reduce downtime, and plan maintenance around actual equipment condition rather than a fixed schedule.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">Python</span><span class="panel-tag">Machine Learning</span><span class="panel-tag">Signal Processing</span><span class="panel-tag">CWRU Dataset</span><span class="panel-tag">MIMII Dataset</span><span class="panel-tag">NASA CMAPSS</span><span class="panel-tag">Git</span></div>`
+  },
+  lawdist: {
+    badge:'Work Experience', title:'Automation & Robotics Application Researcher',
+    meta:'Law Distribution Ltd | Feb – Apr 2025',
+    content:`<p class="panel-section-title">Role Overview</p>
+<p class="panel-p">Completed an internship at Law Distribution Ltd focused on researching and recommending automation, AI, and robotics solutions to improve warehouse operations.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Key Responsibilities</p>
+<p class="panel-p">Analysed existing warehouse processes, identified operational weak areas, created <strong>digital process maps</strong>, researched automation opportunities, estimated time and cost savings, and prepared formal recommendations for process improvement. Also explored how automation, AI, and robotics could improve efficiency, sustainability, and marketability within the business.</p>
+<p class="panel-p">Worked with the Operations Manager to understand the warehouse management system (<strong>Locate It</strong>) and map current workflows before identifying where digital transformation could have the greatest impact.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Skills Developed</p>
+<div class="panel-tags"><span class="panel-tag">Warehouse Automation</span><span class="panel-tag">Process Mapping</span><span class="panel-tag">Robotics Research</span><span class="panel-tag">Efficiency Analysis</span><span class="panel-tag">Technical Reporting</span><span class="panel-tag">Digital Transformation</span></div>`
+  }
+};
+
+/* ═══════════════════════════════════════════
+   MOBILE TIMELINE
+═══════════════════════════════════════════ */
+const mob = document.getElementById('mobileTl');
+TL.forEach(item => {
+  if(item.type === 'academic') {
+    mob.innerHTML += `<div class="m-item" onclick="toggleTimelineExpand('${item.id}')" style="cursor:pointer;">
+      <div class="m-dot" style="background:${item.color}">${item.icon}</div>
+      <div>
+        <div class="m-type" style="color:${item.color}">Education</div>
+        <div class="m-title">${item.label}</div>
+        <div class="m-org">${item.sub}</div>
+        <div class="m-date">${item.date}</div>
+        ${(item.projects||[]).map(p=>`<div style="font-size:.75rem;color:var(--muted);margin-top:.3rem;cursor:pointer;" onclick="event.stopPropagation(); goToProject('${p.id}')">• ${p.title}</div>`).join('')}
+      </div>
+    </div>`;
+  } else {
+    mob.innerHTML += `<div class="m-item" onclick="toggleTimelineExpand('${item.id}')" style="cursor:pointer;">
+      <div class="m-dot" style="background:${item.color}">${item.icon}</div>
+      <div>
+        <div class="m-type" style="color:${item.color}">Work</div>
+        <div class="m-title">${item.label}</div>
+        <div class="m-org">${item.sub}</div>
+        <div class="m-date">${item.date}</div>
+      </div>
+    </div>`;
+  }
+});
+
+/* ═══════════════════════════════════════════
+   DETAIL MODAL — centered, dimmed background, flip-in.
+   Shared by Projects grid AND Journey timeline (desktop + mobile).
+═══════════════════════════════════════════ */
+function openDetailModal(id) {
+  const d = DETAILS[id];
+  if (!d) return;
+  document.getElementById('modalBody').innerHTML = `
+    <div class="proj-expand-header">
+      <div class="proj-expand-badge">${d.badge}</div>
+      <div class="proj-expand-title">${d.title}</div>
+      <div class="proj-expand-meta">${d.meta}</div>
+    </div>
+    <div class="panel-divider"></div>
+    ${d.content}
+  `;
+  document.getElementById('modalOverlay').classList.add('show');
+  document.getElementById('modalBox').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeDetailModal() {
+  document.getElementById('modalOverlay').classList.remove('show');
+  document.getElementById('modalBox').classList.remove('show');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeDetailModal(); });
+
+// Kept as thin wrappers so existing onclick calls throughout the page
+// (timeline cards, mobile list, project cards) don't need to change.
+function toggleTimelineExpand(id) { openDetailModal(id); }
+function toggleProjectExpand(e, id) { e.stopPropagation(); openDetailModal(id); }
+
+// Used by education card project links — jumps to the Projects section
+// and opens that project's own card there, instead of opening a modal in place.
+function goToProject(id) {
+  const target = document.getElementById('projects');
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(() => {
+    const card = document.getElementById('projcard-' + id);
+    if (card) card.click();
+  }, 550);
+}
+
+function checkDeepLink() {
+  const params = new URLSearchParams(window.location.search);
+  const pid = params.get('project');
+  if (pid && DETAILS[pid]) {
+    setTimeout(() => {
+      const projCard = document.getElementById('projcard-' + pid);
+      if (projCard) {
+        // It's a project card — scroll to it and open its inline panel
+        projCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => projCard.click(), 450);
+      } else {
+        // It's a work/education entry — use the inline timeline expand
+        const proj = document.getElementById('timeline');
+        if (proj) proj.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => toggleTimelineExpand(pid), 450);
+      }
+    }, 300);
+  }
+}
+window.addEventListener('DOMContentLoaded', checkDeepLink);
+
+/* ═══════════════════════════════════════════
+   DESKTOP SNAKE TIMELINE
+═══════════════════════════════════════════ */
+function drawSnake() {
+  const wrap = document.getElementById('snakeWrap');
+  if(!wrap || window.innerWidth <= 900) return;
+  wrap.innerHTML = '';
+
+  const N        = TL.length;
+  const PAD      = 70;
+  const MIN_GAP   = 230; // minimum horizontal space per node to prevent same-lane card overlap
+  const W        = Math.max(N * MIN_GAP, wrap.offsetWidth);
+  wrap.style.width = W + 'px';
+  const available = W - 2 * PAD;
+
+  // Card sizes — edu bigger, work smaller. Edu height scales with project count
+  // so cards with more projects (Year 2/3) don't clip their content.
+  const EDU_W = 195, WORK_W = 165, WORK_H = 145;
+  function eduHeight(item) {
+    const n = (item.projects || []).length;
+    if (n === 0) return 145;           // e.g. MSc — just an overview, no project list
+    if (n <= 2) return 185;
+    return 185 + (n - 2) * 20;         // extra room per project title beyond 2
+  }
+  const MAX_CARD_H = Math.max(...TL.filter(i => i.type === 'academic').map(eduHeight));
+  const CONN     = 30;
+  const TOP_NODE = MAX_CARD_H + CONN;       // y of top-row nodes
+  const PATH_SPAN = 150;
+  const BOT_NODE = TOP_NODE + PATH_SPAN;
+  const PATH_W   = 9;
+  const NODE_R   = 14;
+  const TOTAL_H  = BOT_NODE + CONN + WORK_H + 20;
+
+  wrap.style.height = TOTAL_H + 'px';
+
+  const xs = TL.map((_, i) => PAD + (available / (N - 1)) * i);
+  const ys = TL.map((_, i) => i % 2 === 0 ? TOP_NODE : BOT_NODE);
+
+  const NS  = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(NS, 'svg');
+  Object.assign(svg.style, { position:'absolute', top:0, left:0, width:'100%', height:'100%', pointerEvents:'none', overflow:'visible' });
+  svg.setAttribute('viewBox', `0 0 ${W} ${TOTAL_H}`);
+
+  // Path segments — lighter colors
+  for(let i = 0; i < N - 1; i++) {
+    const x1=xs[i], y1=ys[i], x2=xs[i+1], y2=ys[i+1];
+    const mx = (x1+x2)/2;
+    const segColor = TL[i].type === 'academic' ? '#93c5fd' : '#fcd34d';
+    const p = document.createElementNS(NS,'path');
+    p.setAttribute('d', `M ${x1} ${y1} C ${mx} ${y1} ${mx} ${y2} ${x2} ${y2}`);
+    p.setAttribute('fill','none'); p.setAttribute('stroke', segColor);
+    p.setAttribute('stroke-width', PATH_W); p.setAttribute('stroke-linecap','round');
+    svg.appendChild(p);
+  }
+
+  // Connectors
+  TL.forEach((item, i) => {
+    const x=xs[i], y=ys[i], top=i%2===0;
+    const connColor = item.type==='academic' ? '#bfdbfe' : '#fde68a';
+    const ln = document.createElementNS(NS,'line');
+    ln.setAttribute('x1',x); ln.setAttribute('y1', top ? y-NODE_R : y+NODE_R);
+    ln.setAttribute('x2',x); ln.setAttribute('y2', top ? y-CONN : y+CONN);
+    ln.setAttribute('stroke', connColor); ln.setAttribute('stroke-width', 2);
+    ln.setAttribute('stroke-dasharray','4 3');
+    svg.appendChild(ln);
+  });
+
+  // Nodes
+  TL.forEach((item, i) => {
+    const x=xs[i], y=ys[i];
+    const isEdu = item.type==='academic';
+    const nodeColor = isEdu ? '#3b82f6' : '#f59e0b';
+    const glowColor = isEdu ? '#bfdbfe' : '#fde68a';
+
+    const ring = document.createElementNS(NS,'circle');
+    ring.setAttribute('cx',x); ring.setAttribute('cy',y);
+    ring.setAttribute('r', NODE_R+10); ring.setAttribute('fill', glowColor); ring.setAttribute('opacity','.5');
+    svg.appendChild(ring);
+
+    const c = document.createElementNS(NS,'circle');
+    c.setAttribute('cx',x); c.setAttribute('cy',y);
+    c.setAttribute('r', NODE_R); c.setAttribute('fill', nodeColor);
+    svg.appendChild(c);
+
+    // White inner circle for cleaner look
+    const inner = document.createElementNS(NS,'circle');
+    inner.setAttribute('cx',x); inner.setAttribute('cy',y);
+    inner.setAttribute('r', NODE_R-5); inner.setAttribute('fill','rgba(255,255,255,.25)');
+    svg.appendChild(inner);
+
+    const t = document.createElementNS(NS,'text');
+    t.setAttribute('x',x); t.setAttribute('y',y+6);
+    t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','13');
+    t.textContent = item.icon;
+    svg.appendChild(t);
+  });
+
+  wrap.appendChild(svg);
+
+  // HTML Cards
+  TL.forEach((item, i) => {
+    const x=xs[i], top=i%2===0;
+    const isEdu = item.type==='academic';
+    const cW = isEdu ? EDU_W : WORK_W;
+    const cH = isEdu ? eduHeight(item) : WORK_H;
+    const left = Math.max(4, Math.min(W - cW - 4, x - cW/2));
+    const topPos = top ? (MAX_CARD_H - cH) : (BOT_NODE + CONN);
+
+    const card = document.createElement('div');
+    card.className = 's-card ' + (item.type === 'academic' ? 'edu' : 'work');
+    card.style.cssText = `width:${cW}px; left:${left}px; top:${topPos}px; height:${cH}px;`;
+
+    if(isEdu) {
+      card.setAttribute('onclick', `toggleTimelineExpand('${item.id}')`);
+      const projs = (item.projects||[]).map(p =>
+        `<div class="s-proj-item" onclick="event.stopPropagation(); goToProject('${p.id}')">
+          <div class="s-proj-dot"></div>
+          <div class="s-proj-text">
+            <div class="s-proj-name">${p.title}</div>
+          </div>
+        </div>`
+      ).join('');
+      const noProj = !item.projects||item.projects.length===0
+        ? `<div style="padding:.5rem .6rem;font-size:.68rem;color:#64748b;font-style:italic;">In progress…</div>` : '';
+      card.innerHTML = `
+        <div class="s-card-head">
+          <div class="s-num">${item.label}</div>
+          <div class="s-type">Education</div>
+          <div class="s-title">${item.sub}</div>
+          <div class="s-org">${item.date}</div>
+        </div>
+        <div class="s-edu-desc">${item.desc||''}</div>
+        <div class="s-proj-list" style="overflow-y:auto;max-height:${cH-135}px">${projs}${noProj}</div>`;
+    } else {
+      card.setAttribute('onclick', `toggleTimelineExpand('${item.id}')`);
+      card.innerHTML = `
+        <div class="s-card-head">
+          <div class="s-num">${item.label}</div>
+          <div class="s-type">Work</div>
+          <div class="s-title">${item.sub}</div>
+          <div class="s-org">${item.date}</div>
+        </div>
+        <div class="s-work-body">
+          <div class="s-work-summary">${item.summary}</div>
+          <div class="s-read-more">Read full details →</div>
+        </div>`;
+    }
+    wrap.appendChild(card);
+  });
+}
+window.addEventListener('DOMContentLoaded', () => setTimeout(drawSnake, 80));
+window.addEventListener('resize', debounce(drawSnake, 200));
+function debounce(fn, d) { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), d); }; }
+
+/* ─ Scroll Reveal ─ */
+const rvObs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => { if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*70); rvObs.unobserve(e.target);} });
+}, {threshold:.1});
+document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
+
+/* ─ Skill Bars ─ */
+const skObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.style.width=e.target.dataset.w; skObs.unobserve(e.target); } });
+}, {threshold:.5});
+document.querySelectorAll('.sk-fill').forEach(b => skObs.observe(b));
+
+/* ─ Project Tabs ─ */
+document.getElementById('projTabs').addEventListener('click', e => {
+  const btn = e.target.closest('.ptab'); if(!btn) return;
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const cat = btn.dataset.cat;
+  document.querySelectorAll('.proj-card').forEach(c => {
+    c.classList.toggle('hidden', cat!=='all' && c.dataset.cat!==cat);
+  });
+});
+
+/* ─ Contact Form → Formspree ─
+   1. Go to https://formspree.io and create a free account
+   2. Create a new form, verify your email
+   3. Copy your form endpoint (looks like https://formspree.io/f/xxxxabcd)
+   4. Paste it below, replacing the placeholder */
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/myegybkv";
+
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('sendBtn');
+  const status = document.getElementById('cfStatus');
+  const form = e.target;
+
+  if (FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')) {
+    status.textContent = 'Form not yet connected — see setup instructions in the code.';
+    status.style.color = '#b45309';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  status.textContent = '';
+
+  try {
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form),
+    });
+    if (res.ok) {
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#059669';
+      status.textContent = "Thanks — I'll get back to you soon.";
+      status.style.color = '#059669';
+      form.reset();
+    } else {
+      throw new Error('Request failed');
+    }
+  } catch (err) {
+    btn.textContent = 'Send Message';
+    status.textContent = 'Something went wrong — please email me directly instead.';
+    status.style.color = '#dc2626';
+  } finally {
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  }
+});
+</script>
+</body>
+</html>
