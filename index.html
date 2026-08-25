@@ -404,6 +404,14 @@
       <div class="proj-thumb" style="background:#fce7f3"><span>Communications</span><div class="proj-n" style="color:rgba(0,0,0,.05)">11</div></div>
       <div class="proj-body"><h3 class="proj-title">DSB-AM Communication Simulation</h3><p class="proj-desc">Simulated amplitude modulation and demodulation across 0–20dB SNR, with time-domain and spectrum analysis of sine and square wave signals.</p><div class="proj-chips"><span class="proj-chip">DSB-AM</span><span class="proj-chip">AWGN Channel</span><span class="proj-chip">Spectrum Analysis</span></div><div class="proj-read-more">View full details →</div></div>
     </div>
+    <div class="proj-card rv" data-cat="ai" data-panel="birdclass" id="projcard-birdclass" onclick="toggleProjectExpand(event,'birdclass')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#ecfccb"><span>Classical Machine Learning</span><div class="proj-n" style="color:rgba(0,0,0,.05)">12</div></div>
+      <div class="proj-body"><h3 class="proj-title">Bird Species Classification</h3><p class="proj-desc">Built a machine learning pipeline using scikit-learn to classify birds into ecological groups from skeletal measurements, for the Zoological Society of London.</p><div class="proj-chips"><span class="proj-chip">Python</span><span class="proj-chip">scikit-learn</span><span class="proj-chip">EDA</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="ai" data-panel="wildlifedet" id="projcard-wildlifedet" onclick="toggleProjectExpand(event,'wildlifedet')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#fed7aa"><span>Deep Learning &amp; Computer Vision</span><div class="proj-n" style="color:rgba(0,0,0,.05)">13</div></div>
+      <div class="proj-body"><h3 class="proj-title">Wildlife Object Detection</h3><p class="proj-desc">Trained a deep learning object detection model using the TensorFlow Object Detection API to identify wildlife species from image data, for a conservation organisation.</p><div class="proj-chips"><span class="proj-chip">TensorFlow</span><span class="proj-chip">Object Detection</span><span class="proj-chip">PASCAL VOC</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
   </div>
 </section>
 
@@ -586,7 +594,11 @@ const TL = [
     desc:'Advanced study in machine learning algorithms, deep learning, data science, and intelligent systems.',
     projects:[
       { id:'dissertation', title:'⭐ Predictive Maintenance for Industrial Systems',
-        summary:'MSc dissertation using real industrial sensor datasets to detect and predict equipment faults with machine learning.' }
+        summary:'MSc dissertation using real industrial sensor datasets to detect and predict equipment faults with machine learning.' },
+      { id:'birdclass', title:'Bird Species Classification',
+        summary:'Classical ML pipeline classifying birds into ecological groups from skeletal measurements, for the Zoological Society of London.' },
+      { id:'wildlifedet', title:'Wildlife Object Detection',
+        summary:'Deep learning object detection model identifying wildlife species from image data, for a conservation organisation.' }
     ]
   }
 ]
@@ -725,6 +737,36 @@ const DETAILS = {
 <p class="panel-section-title">Technologies Used</p>
 <div class="panel-tags"><span class="panel-tag">DSB-AM Modulation</span><span class="panel-tag">AWGN Channel</span><span class="panel-tag">Spectrum Analysis</span><span class="panel-tag">SNR Analysis</span><span class="panel-tag">Signal Processing</span></div>`
   },
+  birdclass: {
+    badge:'MSc — Foundations of Machine Learning', title:'Bird Species Classification',
+    meta:'Liverpool John Moores University | Classical Machine Learning',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Set by the <strong>Zoological Society of London</strong>: build a machine learning system capable of classifying birds into different ecological groups using skeletal measurements. First proposed as a theoretical implementation plan, then built end-to-end using scikit-learn.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Approach</p>
+<p class="panel-p">Carried out exploratory data analysis on the bird skeletal measurement dataset, then built a full classification pipeline, selecting, training, and evaluating machine learning models to distinguish between ecological bird groups. Model choices were justified against the characteristics of the dataset, with performance assessed using appropriate evaluation metrics.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Skills Demonstrated</p>
+<p class="panel-p">Critical selection of ML algorithms for a real classification task, exploratory data analysis, and rigorous model evaluation — core skills directly applicable to working with structured measurement or sensor data in any domain.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">Python</span><span class="panel-tag">scikit-learn</span><span class="panel-tag">Exploratory Data Analysis</span><span class="panel-tag">Classical ML</span><span class="panel-tag">Jupyter</span></div>`
+  },
+  wildlifedet: {
+    badge:'MSc — Deep Learning Concepts and Techniques', title:'Wildlife Object Detection',
+    meta:'Liverpool John Moores University | Deep Learning &amp; Computer Vision',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Set by a wildlife conservation organisation: build a deep learning object detection system capable of identifying different animal species from image data, implemented using the <strong>TensorFlow Object Detection API 2.0</strong>.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Approach</p>
+<p class="panel-p">Manually tagged a real Sub-Saharan wildlife image dataset across three distinct species, with over 1,000 annotations per class in PASCAL VOC format. Carried out exploratory data analysis on class distribution and applied data augmentation before training and evaluating a deep learning object detection model.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Skills Demonstrated</p>
+<p class="panel-p">End-to-end computer vision pipeline work: manual dataset annotation, image preprocessing and augmentation, deep learning architecture selection, and model evaluation for a real-world detection task.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">TensorFlow</span><span class="panel-tag">Object Detection API</span><span class="panel-tag">PASCAL VOC</span><span class="panel-tag">Computer Vision</span><span class="panel-tag">Data Augmentation</span></div>`
+  },
   pilldispenser: {
     badge:'Year 3 — Level 6 ⭐ Flagship', title:'Autonomous Pill Dispenser & Alarm System',
     meta:'Mechatronics Engineering Project — Final Year',
@@ -850,7 +892,7 @@ const DETAILS = {
 <p class="panel-p">The programme covers machine learning algorithms, deep learning, natural language processing, computer vision, data analytics, and AI ethics — alongside practical project work applying these techniques to real-world engineering and business problems.</p>
 <div class="panel-divider"></div>
 <p class="panel-section-title">Projects This Year</p>
-<div class="panel-tags"><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('dissertation')">⭐ Predictive Maintenance for Industrial Systems</span></div>
+<div class="panel-tags"><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('dissertation')">⭐ Predictive Maintenance for Industrial Systems</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('birdclass')">Bird Species Classification</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('wildlifedet')">Wildlife Object Detection</span></div>
 <div class="panel-divider"></div>
 <p class="panel-section-title">Skills Being Developed</p>
 <div class="panel-tags"><span class="panel-tag">Machine Learning</span><span class="panel-tag">Deep Learning</span><span class="panel-tag">Data Science</span><span class="panel-tag">Python</span><span class="panel-tag">AI Ethics</span><span class="panel-tag">Research Methods</span></div>`
