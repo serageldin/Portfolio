@@ -366,7 +366,7 @@
     </div>
     <div class="proj-card rv" data-cat="ai" data-panel="dissertation" id="projcard-dissertation" onclick="toggleProjectExpand(event,'dissertation')" style="cursor:pointer">
       <div class="proj-thumb" style="background:#fef3c7"><span>MSc Dissertation</span><div class="proj-n" style="color:rgba(0,0,0,.05)">02</div><span class="proj-tag" style="color:#b45309">🔬 In Progress</span></div>
-      <div class="proj-body"><h3 class="proj-title">Predictive Maintenance for Industrial Systems</h3><p class="proj-desc">Applying machine learning to real industrial sensor data (CWRU, MIMII, NASA CMAPSS) to detect and predict equipment faults before they happen.</p><div class="proj-chips"><span class="proj-chip">Python</span><span class="proj-chip">Machine Learning</span><span class="proj-chip">Signal Processing</span></div><div class="proj-read-more">View full details →</div></div>
+      <div class="proj-body"><h3 class="proj-title">Predictive Maintenance for Industrial Mechatronic Systems</h3><p class="proj-desc">Cross-modality ML/deep learning study across CWRU, MIMII, and NASA CMAPSS, with rigorous leakage prevention, repeated-run statistics, and SHAP explainability. 89.3% CWRU accuracy, 99.8% MIMII accuracy, and a validated Arduino hardware proof of concept.</p><div class="proj-chips"><span class="proj-chip">PyTorch</span><span class="proj-chip">scikit-learn</span><span class="proj-chip">SHAP</span></div><div class="proj-read-more">View full details →</div></div>
     </div>
     <div class="proj-card rv" data-cat="ai" data-panel="genetic" id="projcard-genetic" onclick="toggleProjectExpand(event,'genetic')" style="cursor:pointer">
       <div class="proj-thumb" style="background:#ede9fe"><span>AI &amp; Optimisation</span><div class="proj-n" style="color:rgba(0,0,0,.05)">03</div></div>
@@ -411,6 +411,18 @@
     <div class="proj-card rv" data-cat="ai" data-panel="wildlifedet" id="projcard-wildlifedet" onclick="toggleProjectExpand(event,'wildlifedet')" style="cursor:pointer">
       <div class="proj-thumb" style="background:#fed7aa"><span>Deep Learning &amp; Computer Vision</span><div class="proj-n" style="color:rgba(0,0,0,.05)">13</div></div>
       <div class="proj-body"><h3 class="proj-title">Wildlife Object Detection</h3><p class="proj-desc">Trained a deep learning object detection model using the TensorFlow Object Detection API to identify wildlife species from image data, for a conservation organisation.</p><div class="proj-chips"><span class="proj-chip">TensorFlow</span><span class="proj-chip">Object Detection</span><span class="proj-chip">PASCAL VOC</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="ai" data-panel="nhsqa" id="projcard-nhsqa" onclick="toggleProjectExpand(event,'nhsqa')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#dbeafe"><span>NLP &amp; Large Language Models</span><div class="proj-n" style="color:rgba(0,0,0,.05)">14</div></div>
+      <div class="proj-body"><h3 class="proj-title">Clinical QA System for Mersey Care NHS Trust</h3><p class="proj-desc">Built a BERT-based question-answering system trained on a custom clinical dataset covering pressure ulcer care, built from real NHS clinical documents.</p><div class="proj-chips"><span class="proj-chip">BERT</span><span class="proj-chip">NLP</span><span class="proj-chip">LLaMA 3</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="ai" data-panel="enterpriseml" id="projcard-enterpriseml" onclick="toggleProjectExpand(event,'enterpriseml')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#e0e7ff"><span>MLOps &amp; Deployment</span><div class="proj-n" style="color:rgba(0,0,0,.05)">15</div></div>
+      <div class="proj-body"><h3 class="proj-title">Enterprise ML Deployment Pipeline</h3><p class="proj-desc">Built a Flask web application serving a TensorFlow object detection model via TensorFlow Serving, containerised with Docker and GPU-accelerated inferencing.</p><div class="proj-chips"><span class="proj-chip">Flask</span><span class="proj-chip">TensorFlow Serving</span><span class="proj-chip">Docker</span></div><div class="proj-read-more">View full details →</div></div>
+    </div>
+    <div class="proj-card rv" data-cat="ai" data-panel="higgsml" id="projcard-higgsml" onclick="toggleProjectExpand(event,'higgsml')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:#f3e8ff"><span>Accelerated Machine Learning</span><div class="proj-n" style="color:rgba(0,0,0,.05)">16</div></div>
+      <div class="proj-body"><h3 class="proj-title">GPU-Accelerated Particle Classification</h3><p class="proj-desc">Built a GPU-accelerated classification pipeline using RAPIDS cuML and XGBoost to distinguish Higgs boson signal events from background noise, for CERN.</p><div class="proj-chips"><span class="proj-chip">RAPIDS cuML</span><span class="proj-chip">XGBoost</span><span class="proj-chip">GPU Computing</span></div><div class="proj-read-more">View full details →</div></div>
     </div>
   </div>
 </section>
@@ -593,12 +605,18 @@ const TL = [
     sub:'AI & Machine Learning — LJMU', color:EDU_COLOR, icon:'🎓',
     desc:'Advanced study in machine learning algorithms, deep learning, data science, and intelligent systems.',
     projects:[
-      { id:'dissertation', title:'⭐ Predictive Maintenance for Industrial Systems',
-        summary:'MSc dissertation using real industrial sensor datasets to detect and predict equipment faults with machine learning.' },
+      { id:'dissertation', title:'⭐ Predictive Maintenance for Industrial Mechatronic Systems',
+        summary:'Cross-modality ML/DL predictive maintenance study (89.3% CWRU, 99.8% MIMII accuracy) with rigorous validation, statistics, and a physical hardware proof of concept.' },
       { id:'birdclass', title:'Bird Species Classification',
         summary:'Classical ML pipeline classifying birds into ecological groups from skeletal measurements, for the Zoological Society of London.' },
       { id:'wildlifedet', title:'Wildlife Object Detection',
-        summary:'Deep learning object detection model identifying wildlife species from image data, for a conservation organisation.' }
+        summary:'Deep learning object detection model identifying wildlife species from image data, for a conservation organisation.' },
+      { id:'nhsqa', title:'Clinical QA System for Mersey Care NHS Trust',
+        summary:'BERT-based question-answering system trained on a custom clinical dataset covering pressure ulcer care.' },
+      { id:'enterpriseml', title:'Enterprise ML Deployment Pipeline',
+        summary:'Flask web app serving a TensorFlow model via TensorFlow Serving, containerised with Docker and GPU inferencing.' },
+      { id:'higgsml', title:'GPU-Accelerated Particle Classification',
+        summary:'RAPIDS cuML and XGBoost pipeline classifying Higgs boson signal events for CERN, with CPU vs GPU benchmarking.' }
     ]
   }
 ]
@@ -892,7 +910,7 @@ const DETAILS = {
 <p class="panel-p">The programme covers machine learning algorithms, deep learning, natural language processing, computer vision, data analytics, and AI ethics — alongside practical project work applying these techniques to real-world engineering and business problems.</p>
 <div class="panel-divider"></div>
 <p class="panel-section-title">Projects This Year</p>
-<div class="panel-tags"><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('dissertation')">⭐ Predictive Maintenance for Industrial Systems</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('birdclass')">Bird Species Classification</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('wildlifedet')">Wildlife Object Detection</span></div>
+<div class="panel-tags"><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('dissertation')">⭐ Predictive Maintenance for Industrial Mechatronic Systems</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('birdclass')">Bird Species Classification</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('wildlifedet')">Wildlife Object Detection</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('nhsqa')">Clinical QA System for NHS Trust</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('enterpriseml')">Enterprise ML Deployment Pipeline</span><span class="panel-tag panel-tag-link" onclick="closeDetailModal(); goToProject('higgsml')">GPU-Accelerated Particle Classification</span></div>
 <div class="panel-divider"></div>
 <p class="panel-section-title">Skills Being Developed</p>
 <div class="panel-tags"><span class="panel-tag">Machine Learning</span><span class="panel-tag">Deep Learning</span><span class="panel-tag">Data Science</span><span class="panel-tag">Python</span><span class="panel-tag">AI Ethics</span><span class="panel-tag">Research Methods</span></div>`
@@ -910,22 +928,87 @@ const DETAILS = {
 <div class="panel-tags"><span class="panel-tag">Gemini</span><span class="panel-tag">NotebookLM</span><span class="panel-tag">Lovable</span><span class="panel-tag">Firebase Studio</span><span class="panel-tag">Prompt Engineering</span><span class="panel-tag">CRM Development</span><span class="panel-tag">Pitching</span><span class="panel-tag">Business Analysis</span></div>`
   },
   dissertation: {
-    badge:'MSc Dissertation — In Progress', title:'Predictive Maintenance for Industrial Systems',
+    badge:'MSc Dissertation — In Progress', title:'Predictive Maintenance for Industrial Mechatronic Systems',
     meta:'Liverpool John Moores University | 2025 – Present',
     content:`<p class="panel-section-title">Overview</p>
-<p class="panel-p">My MSc dissertation applies <strong>machine learning to predictive maintenance</strong> for industrial mechatronic systems and machines — using real sensor data to detect early signs of equipment failure before it happens, rather than relying on scheduled or reactive maintenance.</p>
+<p class="panel-p">Investigates whether machine learning and deep learning can provide <strong>accurate, reliable, and honestly evaluated</strong> predictive maintenance across three very different types of industrial sensor data — vibration, acoustic, and multivariate degradation — rather than optimising a single benchmark score. A physical Arduino-based rig then tests whether the same methodology transfers from benchmark data to self-collected hardware measurements.</p>
 <div class="panel-divider"></div>
-<p class="panel-section-title">Datasets</p>
-<p class="panel-p">Working with three established industrial datasets to keep the research grounded in real equipment behaviour: <strong>CWRU</strong> (bearing fault vibration data), <strong>MIMII</strong> (industrial machine sound recordings for anomaly detection), and <strong>NASA CMAPSS</strong> (turbofan engine degradation simulation data).</p>
+<p class="panel-section-title">Three Benchmark Problems</p>
+<p class="panel-p"><strong>CWRU</strong> — vibration-based bearing fault classification (Normal / Ball / Inner Race / Outer Race) from accelerometer signals.</p>
+<p class="panel-p"><strong>MIMII</strong> — acoustic Normal/Abnormal anomaly detection from real industrial fan sound recordings.</p>
+<p class="panel-p"><strong>NASA CMAPSS</strong> — Remaining Useful Life (RUL) regression across all four FD001–FD004 sub-datasets, covering both single- and multi-operating-condition engines.</p>
 <div class="panel-divider"></div>
-<p class="panel-section-title">Approach</p>
-<p class="panel-p">Independently designed the research methodology, set up a Python-based development environment with version control, and secured physical lab access at LJMU. The project involves signal processing, feature extraction, and training/evaluating machine learning models to classify fault types and estimate remaining useful life.</p>
+<p class="panel-section-title">Key Results</p>
+<p class="panel-p"><strong>CWRU:</strong> a 1D CNN reached 89.32% ± 2.59% accuracy across 5 repeated runs, versus 64.33% ± 0.16% for the strongest classical baseline (Random Forest) — a ~25 percentage-point improvement, statistically confirmed (Welch's t-test, p = 0.000026).</p>
+<p class="panel-p"><strong>MIMII:</strong> a 2D CNN on log-mel spectrograms reached 99.78% ± 0.48% accuracy versus 98.65% for the best classical model — a smaller but still significant gain (p = 0.004243), showing deep learning isn't always the bigger win once a compact feature set already separates the classes well.</p>
+<p class="panel-p"><strong>CMAPSS:</strong> an LSTM beat the Random Forest baseline on RMSE across all four sub-datasets, with statistically significant improvement on 3 of 4 (FD001, FD003, FD004) — FD002's improvement was not statistically reliable, a result explained by its six operating regimes and matched by its notably higher run-to-run variability.</p>
 <div class="panel-divider"></div>
-<p class="panel-section-title">Why It Matters</p>
-<p class="panel-p">Unplanned equipment failure is expensive and disruptive in manufacturing environments. Predictive maintenance models like this one help engineering teams catch problems early, reduce downtime, and plan maintenance around actual equipment condition rather than a fixed schedule.</p>
+<p class="panel-section-title">Methodological Rigor</p>
+<p class="panel-p">A random CWRU data split initially produced suspiciously perfect results. Investigation revealed overlapping signal windows from the same physical recording were leaking across the train/test boundary — a classic but easy-to-miss validation error. The pipeline was rebuilt around <strong>source-recording separation</strong> so that no related data could cross the split, and every subsequent result was regenerated under the corrected methodology.</p>
+<p class="panel-p">All neural models were trained across 5 independent runs rather than reported from a single favourable session, since single-run results were shown to be unstable — the final CWRU CNN's best individual run (93.52%) sat well above its own 5-run mean (89.32%), demonstrating exactly why repeated evaluation matters.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Explainability</p>
+<p class="panel-p">SHAP was used to check whether each model's attention corresponded to physically plausible signal structure. For CWRU, kurtosis emerged as the dominant feature for Inner Race faults — consistent with the impulsive vibration signature of a localised bearing defect. For MIMII, SHAP-identified spectrogram regions matched patterns found independently through separate class-averaged frequency analysis, giving two independent forms of evidence pointing to the same conclusion.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Physical Proof of Concept</p>
+<p class="panel-p">Built a small vibration-monitoring rig (Arduino Uno, accelerometer, DC motor with an induced imbalance fault) to test whether the CWRU-style methodology transfers to real, self-collected hardware data. The resulting classifier achieved 100% test accuracy — and, critically, stayed at 100% after a robustness check that removed absolute sensor-level information, confirming the model was learning genuine vibration shape rather than an artefact of recording conditions.</p>
 <div class="panel-divider"></div>
 <p class="panel-section-title">Technologies Used</p>
-<div class="panel-tags"><span class="panel-tag">Python</span><span class="panel-tag">Machine Learning</span><span class="panel-tag">Signal Processing</span><span class="panel-tag">CWRU Dataset</span><span class="panel-tag">MIMII Dataset</span><span class="panel-tag">NASA CMAPSS</span><span class="panel-tag">Git</span></div>`
+<div class="panel-tags"><span class="panel-tag">Python</span><span class="panel-tag">PyTorch</span><span class="panel-tag">scikit-learn</span><span class="panel-tag">SHAP</span><span class="panel-tag">Signal Processing</span><span class="panel-tag">CWRU Dataset</span><span class="panel-tag">MIMII Dataset</span><span class="panel-tag">NASA CMAPSS</span><span class="panel-tag">Arduino</span><span class="panel-tag">Statistical Testing</span></div>`
+  },
+  nhsqa: {
+    badge:'MSc — Advanced Topics in Deep Learning', title:'Clinical QA System for Mersey Care NHS Foundation Trust',
+    meta:'Liverpool John Moores University | NLP &amp; Large Language Models',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Set by <strong>Mersey Care NHS Foundation Trust</strong>: build a large language model capable of answering healthcare practitioner questions about pressure ulcer care, to support ongoing clinical training.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Dataset Construction</p>
+<p class="panel-p">Built a custom question-answering dataset from real NHS clinical documents on pressure ulcers, extracting text using <strong>PyMuPDF</strong> and generating question-answer pairs with <strong>LLaMA 3</strong> (via Ollama), serialised in SQuAD format — producing approximately 4,100 QA pairs for training.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Model Training</p>
+<p class="panel-p">Fine-tuned <strong>bert-base-uncased</strong> using BertForQuestionAnswering on the constructed clinical dataset, enabling the model to extract answer spans directly from source text in response to practitioner questions.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Evaluation</p>
+<p class="panel-p">Implemented a manual token-level BERTScore evaluation after encountering library compatibility issues with the standard implementation — building the metric from first principles to properly assess answer quality.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">BERT</span><span class="panel-tag">PyMuPDF</span><span class="panel-tag">LLaMA 3</span><span class="panel-tag">Ollama</span><span class="panel-tag">SQuAD Format</span><span class="panel-tag">Python</span></div>`
+  },
+  enterpriseml: {
+    badge:'MSc — Enterprise Machine Learning', title:'Enterprise ML Deployment Pipeline',
+    meta:'Liverpool John Moores University | MLOps &amp; Deployment',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Set as an enterprise ML deployment challenge: build a production-style system where users can upload images for object detection and view results through a web interface, backed by a properly served deep learning model rather than a script running locally.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Architecture</p>
+<p class="panel-p">Built a <strong>Flask</strong> web application as the front end, communicating with a <strong>TensorFlow Serving</strong> instance hosted in <strong>Docker</strong> for model inference, with GPU-accelerated inferencing for appropriate response speed. The site was professionally styled with external stylesheets rather than inline styling.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technical Challenges</p>
+<p class="panel-p">Resolved WSL2-specific Docker socket and volume-mounting issues to get containerised services communicating correctly on a university GPU VM (RTX 3090), a real-world deployment obstacle beyond just getting a model to train.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Why It Matters</p>
+<p class="panel-p">Training a model is only part of a real ML system — this project focused on the equally important problem of serving that model reliably, at scale, and through an interface real users could actually use.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">Flask</span><span class="panel-tag">TensorFlow Serving</span><span class="panel-tag">Docker</span><span class="panel-tag">Docker Compose</span><span class="panel-tag">GPU Inferencing</span><span class="panel-tag">Web Development</span></div>`
+  },
+  higgsml: {
+    badge:'MSc — Accelerated Machine Learning', title:'GPU-Accelerated Particle Classification',
+    meta:'Liverpool John Moores University | Accelerated Machine Learning',
+    content:`<p class="panel-section-title">Overview</p>
+<p class="panel-p">Set by <strong>CERN</strong>: develop an accelerated classification model to automatically distinguish a signal process that produces Higgs bosons from a background process that does not, implemented using the <strong>RAPIDS</strong> GPU-accelerated framework.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Approach</p>
+<p class="panel-p">Preprocessed the CERN particle dataset using GPU dataframes, applied dimensionality reduction to identify the most informative features, and trained classification models using <strong>RAPIDS cuML</strong> and <strong>XGBoost</strong>, comparing CPU versus GPU training performance directly.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technical Challenges</p>
+<p class="panel-p">Worked around a persistent CUDA context error in the GPU dataframe pipeline by routing data through <code>to_arrow().to_pandas()</code> instead of the standard <code>to_pandas()</code> conversion — a targeted fix for a real low-level GPU computing obstacle.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Evaluation</p>
+<p class="panel-p">Assessed models using confusion matrix, sensitivity, specificity, loss, and AUC, with an explicit CPU-versus-GPU training benchmark to quantify the acceleration achieved.</p>
+<div class="panel-divider"></div>
+<p class="panel-section-title">Technologies Used</p>
+<div class="panel-tags"><span class="panel-tag">RAPIDS cuML</span><span class="panel-tag">XGBoost</span><span class="panel-tag">GPU Computing</span><span class="panel-tag">CUDA</span><span class="panel-tag">Python</span><span class="panel-tag">Dimensionality Reduction</span></div>`
   },
   lawdist: {
     badge:'Work Experience', title:'Automation & Robotics Application Researcher',
